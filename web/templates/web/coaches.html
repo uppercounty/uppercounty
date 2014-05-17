@@ -1,0 +1,49 @@
+{% extends "web/base.html" %}
+{% load staticfiles %}
+{% block title %}Coaches · Upper County{% endblock %}
+
+{% block content %}
+
+<div class="container uc-container">
+  <ul class="nav nav-tabs space-top">
+    <li class="active"><a href="#jennifer-taylor" data-toggle="tab">Jenn</a>
+    <li><a href="#shannon-king" data-toggle="tab">Shannon</a>
+    <li><a href="#melanie-page" data-toggle="tab">Melanie</a>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane fade in active" id="jennifer-taylor">
+      <div class="row">
+        <div class="page-header">
+          <h4>Jennifer Taylor <small>Head Coach</small></h4>
+        </div>
+        <img class="img-thumbnail featurette-img pull-left" src="{% static 'img/coaches-jenn.jpg' %}">
+        <p>Jen has been our beloved head coach since 1995. She graduated from UMD with Master degrees in school counseling. She currently works for the MCPS as a guidance counselor at Wootton High School. Jen was an "Outstanding" member of the Westleigh, Wootton High School, RMSC and the University of Maryland swim teams.
+        <p><span class="glyphicon glyphicon-envelope"></span><a href="mailto:jennifer_a_taylor@mcpsmd.org"> Send an email</a>
+      </div>
+    </div><!-- /.tab-pane -->
+    <div class="tab-pane fade" id="shannon-king">
+      <div class="row">
+        <div class="page-header">
+          <h4>Shannon King <small>Assistant Coach</small></h4>
+        </div>
+        <img class="img-thumbnail featurette-img pull-left" src="{% static 'img/coaches-shannon.jpg' %}">
+        <p>Shannon started swimming for Upper County when she was 10 years old and swam for the Dolphins until she graduated from Gaithersburg High School. During the winter she is head coach of the GHS swim team. Shannon graduated from University of Maryland and has been working at the Nuclear Regulatory Commission for the past 5 years. In addition to coaching at UC and GHS, she also coaches year-round for RMSC. Some fun facts about Shannon: she loves to run and has a pet kitty named Brooksie. She's looking forward to another great season with the team!
+        <p><span class="glyphicon glyphicon-envelope"></span><a href="mailto:sking0212@gmail.com"> Send an email</a>
+      </div>
+    </div><!-- /.tab-pane -->
+    <div class="tab-pane fade" id="melanie-page">
+      <div class="row">
+        <div class="page-header">
+          <h4>Melanie Page <small>Assistant Coach</small></h4>
+        </div>
+        <img class="img-thumbnail featurette-img pull-left" src="{% static 'img/coaches-melanie.jpg' %}">
+        <p>Melanie graudated from Salsbury University in 2013 with a bachelors in health education with a minor in psychology. Melanie has been a coach for Upper County for the past 5 summers. Prior to coaching Melanie was a swimmer on our team. She began swimming with Upper County when she was 6.
+        <p><span class="glyphicon glyphicon-envelope"></span><a href="mailto:mpage814@yahoo.com"> Send an email</a>
+      </div>
+    </div><!-- /.tab-pane -->
+  </div><!-- /.tab-content -->
+</div><!-- /.container -->
+
+{% endblock %}
+

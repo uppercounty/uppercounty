@@ -1,0 +1,485 @@
+/*
+ * Scaffolding
+ */
+body {
+  font-family: "Open Sans", sans-serif;
+  position: relative; /* For scrollspy */
+}
+
+.btn-outline {
+  background-color: transparent;
+  border-color: #2a6496;
+  color: #2a6496;
+}
+.btn-outline.pull-bottom {
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
+  left: 45%;
+  width: 120px;
+}
+.btn-outline.pull-bottom:hover,
+.btn-outline.pull-bottom:focus,
+.btn-outline.pull-bottom:active {
+  background-color: #fff;
+  border-color: #fff;
+  color: #000;
+}
+.btn-outline:hover,
+.btn-outline:focus,
+.btn-outline:active {
+  background-color: #2a6496;
+  border-color: #2a6496;
+  color: #fff;
+}
+
+/*
+ * Main navigation
+ */
+.navbar {
+  background-color: #f6f6f6;
+  margin-bottom: 0;
+}
+.navbar .navbar-brand {
+  color: #2a6496;
+  font-size: 20px;
+}
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+  color: #2a6496;
+}
+.navbar .navbar-nav > li > a {
+  color: #2a6496;
+}
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > .active > a,
+.navbar .navbar-nav > .active > a:hover {
+  color: #2a6496;
+}
+
+/*
+ * Footer
+ */
+.uc-footer {
+  border-top: 1px solid #e5e5e5;
+  padding-bottom: 30px;
+  padding-top: 20px;
+  margin-top: 100px;
+  text-align: center;
+}
+.footer-links {
+  margin: 10px;
+  padding-left: 0;
+}
+.footer-links li {
+  display: inline;
+  padding: 0 2px;
+}
+.footer-links li:first-child {
+  padding-left: 0;
+}
+
+@media (min-width:768px) {
+  .uc-footer {
+    text-align: left;
+  }
+  .uc-footer p {
+    margin-bottom: 0;
+  }
+}
+
+/*
+ * Social buttons
+ */
+.uc-social {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+.uc-social-buttons {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+.uc-social-buttons li {
+  display: inline-block;
+  line-height: 1;
+  padding: 5px 8px;
+}
+.github-btn {
+  border: 0;
+  overflow: hidden;
+}
+.uc-social-buttons .twitter-follow-button {
+  width: 225px !important;
+}
+
+@media (min-width: 768px) {
+  .uc-social {
+    text-align: left;
+  }
+  .uc-social-buttons li:first-child {
+    padding-left: 0;
+  }
+}
+
+/*
+ * Headers
+ */
+.uc-header {
+  background-color: #ddd;
+  font-size: 20px;
+  margin-bottom: 40px;
+  padding: 30px 15px;
+  position: relative;
+  text-align: center;
+  text-shadow: 0 1px rgba(0,0,0,.1);
+}
+.uc-header h1 {
+  margin-top: 0;
+}
+.uc-header p {
+  font-weight: 300;
+  line-height: 1.4;
+  margin-bottom: 0;
+}
+.uc-header .container {
+  position: relative;
+}
+
+@media(min-width: 768px) {
+  .uc-header {
+    font-size: 20px;
+    padding-bottom: 60px;
+    padding-top: 60px;
+    text-align: left;
+  }
+  .uc-header h1 {
+    font-size: 40px;
+    line-height: 1;
+  }
+}
+
+@media(min-width: 992px) {
+  .uc-header h1,
+  .uc-header p {
+    margin-right: 380px;
+  }
+}
+
+/* Side navigation
+ *
+ * Scrollspy and affixed enhanced nagivation to highlight sections and
+ * secondary sections of content.
+ */
+
+/* By default it's not affixed in mobile views, so undo that */
+.uc-sidebar.affix {
+  position: static;
+}
+@media(min-width: 768px) {
+  .uc-sidebar {
+    padding-left: 20px;
+  }
+}
+
+/* First level of nav */
+.uc-sidenav {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+/* All levels of nav */
+.uc-sidebar .nav > li > a {
+  color: #999;
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 4px 20px;
+}
+.uc-sidebar .nav > li > a:hover,
+.uc-sidebar .nav > li > a:focus {
+  background-color: transparent;
+  border-left: 1px solid #563d7c;
+  color: #563d7c;
+  padding-left: 19px;
+  text-decoration: none;
+}
+.uc-sidebar .nav > .active > a,
+.uc-sidebar .nav > .active:hover > a,
+.uc-sidebar .nav > .active:focus > a {
+  color: #563d7c;
+  background-color: transparent;
+  border-left: 2px solid #563d7c;
+  font-weight: bold;
+  padding-left: 18px;
+}
+
+/* Nav: second level (shown on .active) */
+.uc-sidebar .nav .nav {
+  display: none; /* Hide by default, but at > 768px, show it */
+  padding-bottom: 10px;
+}
+.uc-sidebar .nav .nav > li > a {
+  font-size: 12px;
+  font-weight: normal;
+  padding-bottom: 1px;
+  padding-left: 30px;
+  padding-top: 1px;
+}
+.uc-sidebar .nav .nav > li > a:hover,
+.uc-sidebar .nav .nav > li > a:focus {
+  padding-left: 29px;
+}
+.uc-sidebar .nav .nav > .active > a,
+.uc-sidebar .nav .nav > .active:hover > a,
+.uc-sidebar .nav .nav > .active:focus > a {
+  font-weight: 500;
+  padding-left: 28px;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+  .uc-sidebar .nav > .active > ul {
+    display: block;
+  }
+  /* Widen the fixed sidebar */
+  .uc-sidebar.affix,
+  .uc-sidebar.affix-bottom {
+    width: 213px;
+  }
+  .uc-sidebar.affix {
+    position: fixed; /* Undo the static from mobile first approach */
+    top: 20px;
+  }
+  .uc-sidebar.affix-bottom {
+    position: absolute; /* Undo the static from mobile first approach */
+  }
+  .uc-sidebar.affix-bottom .uc-sidenav,
+  .uc-sidebar.affix .uc-sidenav {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}
+@media (min-width: 1200px) {
+   /* Widen the fixed sidebar again */
+  .uc-sidebar.affix-bottom,
+  .uc-sidebar.affix {
+    width: 263px;
+  }
+}
+
+
+/* Home Page 
+ *
+ * Jumbotron styles
+ *
+ */
+.jumbotron {
+  color: #fff;
+  padding: 40px 0;
+  position: relative;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.75);
+}
+.jumbotron h1 {
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+.jumbotron p {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+.jumbotron a {
+  color: #fff;
+  color: rgba(255,255,255,0.5);
+  -o-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+/* Masthead (home page) */
+.masthead {
+  background: url('../img/take-your-mark.jpg') no-repeat center center fixed;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  color: #fff;
+  margin-bottom: 0;
+  padding: 100px 0 100px;
+}
+.masthead h1 {
+  font-size: 40px;
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-bottom: 50px;
+}
+.masthead p {
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 1.25;
+}
+.masthead-links {
+  list-style: none;
+  margin: 0;
+}
+.masthead-links li {
+  color: #fff;
+  color: rgba(255,255,255,.25);
+  display: inline;
+  padding: 0 10px;
+}
+
+@media(min-width: 768px) {
+  .masthead {
+    height: 100%;
+  }
+  .masthead h1 {
+    font-size: 60px;
+  }
+}
+
+/* 
+ * Themes Toggle (home page)
+ */
+.theme-toggle {
+  width: 800px;
+}
+
+/*
+ * Team info section
+ *
+ * Content blocks for each component
+ */
+
+/* Space things out */
+.uc-team-info-section {
+  margin-bottom: 60px;
+}
+.uc-team-info-section:last-child {
+  margin-bottom: 0;
+}
+
+h1[id] {
+  padding-top: 20px;
+  margin-top: 0;
+}
+
+table {
+  font-size: 14px;
+}
+.practice-schedule td {
+  text-align: center;
+}
+/*
+ * Callouts
+ *
+ * Not quite alerts, but custom and useful notes
+ * Requires a base and modifer class
+ */
+
+/* Common styles for all types */
+.bs-callout {
+  border-left: 3px solid #eee;
+  margin: 20px 0;
+  padding: 20px;
+}
+.bs-callout h4 {
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+.bs-callout p:last-child {
+  margin-bottom: 0;
+}
+
+/* Variations */
+.bs-callout-danger {
+  background-color: #fdf7f7;
+  border-color: #eed3d7;
+}
+.bs-callout-danger h4 {
+  color: #b94a48;
+}
+.bs-callout-warning {
+  background-color: #faf8f0;
+  border-color: #faebcc;
+}
+.bs-callout-warning h4 {
+  color: #c09853;
+}
+.bs-callout-info {
+  background-color: #f4f8fa;
+  border-color: #bce8f1;
+}
+.bs-callout-info h4 {
+  color: #3a87ad;
+}
+
+/*
+ * Featurettes
+ */
+.featurette {
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  color: #555;
+  font-size: 16px;
+  line-height: 1.5;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  text-align: center;
+}
+.featurette-gray {
+  background-color: #f1f1f1;
+}
+.featurette-img {
+  margin: 0 30px;
+  overflow: hidden;
+}
+.featurette + .uc-footer {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.featurette-title {
+  color: #333;
+  font-size: 30px;
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+.half-rule {
+  margin: 40px auto;
+  width: 100px;
+}
+.featurette h3{
+  color: #333;
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+.sidebar.affix {
+  position: static;
+}
+.sidebar {
+  margin-top: 40px;
+}
+@media(min-width: 992px) {
+  .sidebar.affix {
+    position: fixed;
+    top: 0;
+  }
+}
+.list-group-item-text {
+  margin-top: 15px;
+}
+.space-top {
+  margin-top: 40px;
+}
+.pull-bottom {
+  bottom: 0;
+  margin-bottom: 80px;
+  position: absolute;
+}

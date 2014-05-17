@@ -1,0 +1,81 @@
+{% extends "web/base.html" %}
+{% load staticfiles %}
+
+{% block title %}Home &middot; Upper County{% endblock %}
+
+{% block header %}
+
+<div class="jumbotron masthead" id="content">
+  <div class="container">
+    <h1>Upper County Dolphins</h1>
+    <hr>
+    <div>
+      We are a community swim team with the Montgomery County Parks and Recreation program. We compete in Division A of the Montgomery County Swim League (MCSL) on Saturday mornings and in a local B league on Wednesday nights. We welcome swimmers up to ages 18 who live in the nearby neighborhoods and communities near the Upper County pool. If you're looking for fun and fast times in and out of the pool, you've found the best team around!
+    </div>
+    <hr>
+    <ul class="masthead-links">
+      <li><a href="//www.mcsl.org">MCSL</a>
+      <li><a href="//www.reachforthewall.com">Reach for the Wall</a>
+      <li><a href="//www.pvswim.org">Potomac Valley Swimming</a>
+      <li><a href="//www.usaswimming.org">USA Swimming</a>
+    </ul><!-- /.masthead-links -->
+    <button type="button" class="btn btn-outline btn-lg hidden-xs pull-bottom" id="scroll">
+      <span class="glyphicon glyphicon-chevron-down"></span>
+    </button>
+  </div><!-- /.container -->
+</div><!-- /.jumbotron -->
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="featurette">
+  <div class="container">
+    <div class="col-md-6">
+      <h2 class="featurette-title">Top seeded team in the county</h2>
+      <p class="lead">The Dolphins went undefeated in the 2013 MCSL season.
+      <p><a class="btn btn-large btn-outline"
+        href="//mcslorg0000.web802.discountasp.net/teamdiv/Div_2014.pdf" target="_blank">View 2014 Division Rankings</a></p>
+    </div>
+    <div class="col-md-6">
+      <img class="thumbnail center-block img-responsive" src="{% static 'img/team-photo.jpg' %}">
+    </div>
+  </div><!-- /.container -->
+</div><!-- /.featurette -->
+
+<div class="featurette">
+  <div class="container">
+    <h2 class="featurette-title">We've got spirit!</h2>
+    <p class="lead">Home of the most spirited swimmers, coaches, and parents in the league.</p>
+    <hr class="half-rule">
+    <p>
+      <div class="btn-group">
+        <button type="button" class="btn btn-default theme-toggler" data-image-id="#theme1">Olympic</button>
+        <button type="button" class="btn btn-default theme-toggler" data-image-id="#theme2">Wizard of Oz</button>
+        <button type="button" class="btn btn-default theme-toggler" data-image-id="#theme3">Star Wars</button>
+        <button type="button" class="btn btn-default theme-toggler" data-image-id="#theme4">Luau</button>
+        <button type="button" class="btn btn-default theme-toggler" data-image-id="#theme5">Neon</button>
+        <button type="button" class="btn btn-default theme-toggler" data-image-id="#theme6">KISS</button>
+      </div>
+    </p>
+    <div>
+      <img class="img-rounded center-block img-responsive theme-toggle" id="theme1" src="{% static 'img/theme-olympic.jpg' %}">
+      <img class="img-rounded center-block img-responsive theme-toggle" id="theme2" src="{% static 'img/theme-oz.jpg' %}" style="display: none;">
+      <img class="img-rounded center-block img-responsive theme-toggle" id="theme3" src="{% static 'img/theme-starwars.jpg' %}" style="display: none;">
+      <img class="img-rounded center-block img-responsive theme-toggle" id="theme4" src="{% static 'img/theme-luau.jpg' %}" style="display: none;">
+      <img class="img-rounded center-block img-responsive theme-toggle" id="theme5" src="{% static 'img/theme-neon.jpg' %}" style="display: none;">
+      <img class="img-rounded center-block img-responsive theme-toggle" id="theme6" src="{% static 'img/theme-kiss.jpg' %}" style="display: none;">
+    </div>
+  </div><!-- /.container -->
+</div><!-- /.featurette -->
+
+<div class="featurette">
+  <div class="container">
+    <h2 class="featurette-title">Join the family</h2>
+    <p class="lead">Registration for the 2014 season has begun. Our course number is 381002.</p>
+    <a href="//recweb.montgomerycountymd.gov/Start/Start.asp" class="btn btn-outline btn-lg" target="_blank">Sign-up now</a>
+  </div><!-- /.container -->
+</div><!-- /.featurette -->
+
+{% endblock %}

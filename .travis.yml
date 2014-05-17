@@ -1,0 +1,21 @@
+language: python
+python:
+- '2.7'
+env:
+  global:
+  - SECRET_KEY=travis
+  - AWS_STORAGE_BUCKET_NAME=uppercounty
+  - secure: cveRyq9Yk7xcmrwnN1OfF3lpx4Ph/fkkZOz+J4WdhJvgNfFMnMXIcZmlJbr/VtrSLzXypFU5C7aU9XzCnaCtNzLyE98qXtxwDQ25Un/r1nMkcg+K8eszc4VUIte0QJYlhIt0YWdp5UpXsx03uWtdBetMrvDs3elp+9ELnvw4YXc=
+  - secure: Xi0zTN6in6+n3G2F1zzaFlUUZtcN1fTg9Iz7rf1mXNi1UpkuI3oOkt8rukwSgihMldWcxh1LWHyWSqVogH2rgIdr3mFyrxN3x06h4GA6HuECpy9VijqE7zDfOZGr8RM2Ughg+2JbQqfMcpSqPSsWv4y+nuqnjTcV9hbg8BGI/uw=
+  matrix:
+  - DJANGO=1.6 DB=postgres
+install:
+- pip -q install Django==$DJANGO
+- pip -q install -r requirements.txt --use-mirrors
+- pip -q install pep8
+- pip -q install coveralls
+before_script:
+- pep8 uppercounty web
+- psql -c 'create database ucdb;' -U postgres
+script: coverage run --source=web manage.py test
+after_script: coveralls

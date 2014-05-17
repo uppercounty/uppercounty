@@ -1,0 +1,190 @@
+{% extends "web/base.html" %}
+
+{% block title %}Team · Upper County{% endblock %}
+
+{% block content %}
+
+<div class="container uc-container">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="uc-team-info-section">
+        <div class="page-header">
+          <h3 id="practices">Practice Schedule</h3>
+        </div>
+        <h4>Preseason</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered practice-schedule">
+            <tr>
+              <th>Age Group
+              <th>Mon
+              <th>Tues
+              <th>Wed
+              <th>Thur
+              <th>Fri
+            <tr>
+              <th>10 & Under
+              <td colspan="5">4:30-5:30 pm
+            <tr>
+              <th>11 & Over
+              <td colspan="5">5:30-6:30 pm
+          </table>
+        </div><!-- /.table-responsive -->
+        <h4>Season</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover practice-schedule">
+            <tr>
+              <th>Age Group
+              <th>Mon
+              <th>Tues
+              <th>Wed
+              <th>Thur
+              <th>Fri
+            <tr>
+              <th>13 & Over
+              <td colspan="5">7:30-9:00 am
+            <tr>
+              <th>9-12 Year-old
+              <td colspan="5">9:00-10:00 am
+            <tr>
+              <th>8 & Under
+              <td colspan="4">10:00-11:00 am
+              <td>9:00-10:00 am
+            <tr>
+              <th>All
+              <td colspan="2">8:00-9:00 pm
+              <td>
+              <td>8:00-9:00 pm
+              <td>
+          </table>
+        </div><!-- /.table-responsive -->
+        <div class="bs-callout bs-callout-info">
+          <h4>Cancellations</h4>
+          <p>Emergency cancellations due to inclement weather will be announced on the Yahoo group. Subscribe for real-time announcements.
+        </div>
+      </div>
+
+      <div class="uc-team-info-section">
+        <div class="page-header">
+          <h3 id="dates">Important Dates</h3>
+        </div>
+        <h4 id="duel-meets">Duel Meets</h4>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="table-responsive">
+                <table class="table">
+                  <tr>
+                    <th>Date
+                    <th>A Meets (Home vs. Away)
+                  <tr>
+                    <td>6/14
+                    <td>Upper County vs. Bethesda
+                  <tr>
+                    <td>6/21
+                    <td>Rockville vs. Upper County
+                  <tr>
+                    <td>6/28
+                    <td>Upper County vs. Tilden Woods
+                  <tr>
+                    <td>7/05
+                    <td>Woodcliffe vs. Upper County
+                  <tr>
+                    <td>7/12
+                    <td>Upper County vs. Stonegate
+                </table>
+              </div><!-- /.table-responsive -->
+            </div><!-- /.col-md-6 -->
+            <div class="col-md-6">
+              <div class="table-responsive">
+                <table class="table">
+                  <tr>
+                    <th>Date
+                    <th>B Meets (Home vs. Away)
+                  <tr>
+                    <td>6/18
+                    <td>Mill Creek Towne vs. Upper County
+                  <tr>
+                    <td>6/25
+                    <td>Upper County vs. Damascus
+                  <tr>
+                    <td>7/02
+                    <td>Upper County vs. Olney Mill
+                  <tr>
+                    <td>7/09
+                    <td>Upper County vs. Hallowell
+                  <tr>
+                    <td>7/16
+                    <td>Flower Valley vs. Upper County
+                </table>
+              </div><!-- /.table-responsive -->
+            </div><!-- /.col-md-6 -->
+          </div>
+        <h4 id="other-meets">Other Meets</h4>
+        <table class="table">
+          <tr>
+            <td>6/07
+            <td>Time Trials
+          <tr>
+            <td>7/08
+            <td>Coaches Long Course Invitational
+          <tr>
+            <td>7/19
+            <td>Divisional Championships
+          <tr>
+            <td>7/26
+            <td>MCSL All-Star Relays
+          <tr>
+            <td>7/27
+            <td>MCSL All-Star Individuals
+        </table>
+        <h4 id="events">Team Events</h4>
+        <table class="table">
+          <tr>
+            <td>5/18
+            <td>Dine-out @ Dogfish
+          <tr>
+            <td>5/27
+            <td>Parent Meeting
+          <tr>
+            <td>6/13
+            <td>Pasta Potluck & Pep Rally and Team Photo
+          <tr>
+            <td>6/27
+            <td>International Potluck & Pep Rally
+          <tr>
+            <td>7/10
+            <td>Fun Night
+          <tr>
+            <td>7/11
+            <td>Family Favorite Recipe Potluck & Pep Rally
+          <tr>
+            <td>7/13
+            <td>Outdoor Movie Night
+          <tr>
+            <td>7/19
+            <td>Season Banquet @ Shady Grove Middle School
+        </table>
+        <div class="bs-callout bs-callout-info">
+          <h4>Stay up to date</h4>
+          <p>Subscribe to the <a href="//www.google.com/calendar/embed?src=l1sbfdasf9s3jnmd87mndhhltg%40group.calendar.google.com">Google calendar</a> for event details.
+        </div>
+      </div><!-- /.uc-team-info-section -->
+    </div><!-- /.col-md-9 -->
+
+    <div class="col-md-3">
+      <div class="uc-sidebar hidden-print" role="complementary">
+        <ul class="nav uc-sidenav">
+          <li><a href="#practices">Practice Schedule</a>
+          <li><a href="#dates">Important Dates</a>
+          <ul class="nav">
+            <li><a href="#duel-meets">Duel Meets</a>
+            <li><a href="#other-meets">Other Meets</a>
+            <li><a href="#events">Team Events</a>
+          </ul>
+        </ul>
+      </div><!-- /.uc-sidebar -->
+    </div><!-- /.col-md-3 -->
+  </div><!-- /.row -->
+</div><!-- /.container -->
+
+{% endblock %}
+

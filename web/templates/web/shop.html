@@ -1,0 +1,84 @@
+{% extends "web/base.html" %}
+{% load staticfiles %}
+
+{% block title %}Shop · Upper County{% endblock %}
+
+{% block content %}
+
+<div class="featurette" id="spirit-wear">
+  <div class="container">
+    <div class="col-md-8 col-md-push-4">
+      <img class="img-responsive" src="{% static 'img/shop-hoodie.png' %}">
+    </div>
+    <div class="col-md-4 col-md-pull-8 text-left">
+      <h3 class="featurette-title">Spirit Wear</h3>
+      <p class="lead">T-shirts, hoodies, and more!
+      <p>Orders placed by May 31st will be available on June 14th. Orders placed by June 20th will be available on July 5th.
+      <h3>Coming soon!<h/3>
+    </div>
+  </div>
+</div>
+
+<div class="featurette featurette-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2 col-md-offset-1">
+        <img src="{% static 'img/shop-latex-cap.jpg' %}" class="img-responsive img-thumbnail">
+        <h4>Latex Swim Cap</h4>
+        <p>$4.00
+      </div>
+      <div class="col-sm-2">
+        <img src="{% static 'img/shop-silicone-cap.jpg' %}" class="img-responsive img-thumbnail">
+        <h4>Silicone Swim Cap</h4>
+        <p>$12.00
+      </div>
+      <div class="col-sm-2">
+        <img src="{% static 'img/shop-magnet.jpg' %}" class="img-responsive img-thumbnail">
+        <h4>Magnet</h4>
+        <p>$5.00
+      </div>
+      <div class="col-sm-2">
+        <img src="{% static 'img/shop-blanket.jpg' %}" class="img-responsive img-thumbnail">
+        <h4>Blanket</h4>
+        <p>$30.00
+      </div>
+      <div class="col-sm-2">
+        <img src="{% static 'img/shop-bag-tag.jpg' %}" class="img-responsive img-thumbnail">
+        <h4>Bag Tag</h4>
+        <p>$4.00
+      </div>
+    </div><!-- /.row -->
+    <small><br>Available for purchase during all home meets and team events</small>
+  </div><!-- /.container -->
+</div><!-- /.featurette -->
+
+<div class="featurette">
+  <div class="container">
+    <h3 class="featurette-title">Team Suits</h3>
+    <p class="lead">The team suits for the 2014 season will be the Nike Foil Skin
+    <hr class="half-rule">
+    <div class="row">
+      <div class="col-sm-3">
+        <img src="{% static 'img/shop-nike-fast-back-tank.jpg' %}" class="img-responsive">
+        <h4>Fast Back Tank - $57</h4>
+      </div>
+      <div class="col-sm-3">
+        <img src="{% static 'img/shop-nike-cut-tank.jpg' %}" class="img-responsive">
+        <h4>Cut Out Tank - $57</h4>
+      </div>
+      <div class="col-sm-3">
+        <img src="{% static 'img/shop-nike-brief.jpg' %}" class="img-responsive">
+        <h4>Brief - $30</h4>
+      </div>
+      <div class="col-sm-3">
+        <img src="{% static 'img/shop-nike-jammer.jpg' %}" class="img-responsive">
+        <h4>Jammer - $36</h4>
+      </div>
+    </div>
+    <hr class="half-rule">
+    <p class="small"><a href="//www.aardvarkswim.com">Aardvark Swim & Sport</a> will have team suits available for purchase at the Parent Meeting on May 27th. Suits may also be purchased from their store. Be sure to ask for the team discount!
+  </div>
+</div>
+
+
+{% endblock %}

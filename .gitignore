@@ -1,0 +1,40 @@
+# compiled python files
+*.py[cod]
+
+# c extensions
+*.so
+
+# distribution / packaging
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info
+.installed.cfg
+*.egg
+
+# unit test / coverage reports
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# django stuff
+*.log
+*.pot
+*.sqlite3
+
+# heroku stuff
+.env
