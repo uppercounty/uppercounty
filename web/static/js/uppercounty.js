@@ -31,7 +31,7 @@
     });
 
     $body.scrollspy({
-      target: '.uc-sidebar',
+      target: '.uc-sidebar'
     });
 
     $window.on('load', function() {
