@@ -1,9 +1,10 @@
 /*
  * Scaffolding
  */
-body {
+html, body {
   font-family: "Open Sans", sans-serif;
   position: relative; /* For scrollspy */
+  height: 100%;
 }
 
 .btn-outline {
@@ -307,8 +308,9 @@ body {
 /* Masthead (home page) */
 .masthead {
   background: url('../img/take-your-mark.jpg') no-repeat center center fixed;
-  -moz-background-size: cover;
   -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
   color: #fff;
   margin-bottom: 0;
