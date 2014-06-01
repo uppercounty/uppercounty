@@ -3,9 +3,9 @@
 
 {% block title %}Home &middot; Upper County{% endblock %}
 
-{% block header %}
+{% block content %}
 
-<div class="jumbotron masthead" id="content">
+<main class="jumbotron masthead" id="content" role="main">
   <div class="container">
     <img src="{% static 'img/logo.png' %}">
     <h1>Upper County Dolphins</h1>
@@ -24,12 +24,7 @@
       <span class="glyphicon glyphicon-chevron-down"></span>
     </button>
   </div><!-- /.container -->
-</div><!-- /.jumbotron -->
-
-{% endblock %}
-
-
-{% block content %}
+</main>
 
 <div class="featurette">
   <div class="container">
