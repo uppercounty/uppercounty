@@ -35,6 +35,8 @@ coverage.xml
 *.log
 *.pot
 *.sqlite3
+staticfiles/
 
 # heroku stuff
 .env
+
