@@ -1,7 +1,7 @@
 Upper County Dolphins
 =====================
 
-|Status| |Coverage|
+|Status|
 
 Website for the Upper County Dolphins swim team.
 
@@ -24,6 +24,3 @@ Code and documentation copyright 2014 Upper County Dolphins. Code is released un
 
 .. |Status| image:: https://travis-ci.org/uppercounty/uppercounty.svg?branch=master
    :target: https://travis-ci.org/uppercounty/uppercounty
-
-.. |Coverage| image:: https://coveralls.io/repos/uppercounty/uppercounty/badge.png
-   :target: https://coverals.io/r/uppercounty/uppercounty
