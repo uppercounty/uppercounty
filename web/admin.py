@@ -21,7 +21,16 @@
 """Admin forms to input data.
 
 .. moduleauthor:: Yang Yang <y4n9squared@gmail.com>
+.. moduleauthor:: Andrew Wang <wangandrewt@gmail.com>
 
 """
 
 from django.contrib import admin
+
+from web.models import SwimRecord
+
+
+class SwimRecordAdmin(admin.ModelAdmin):
+    list_filter = ['record_type']
+
+admin.site.register(SwimRecord, SwimRecordAdmin)

@@ -1,0 +1,81 @@
+{% extends "web/base.html" %}
+
+{% block title %}Records · Upper County{% endblock %}
+
+{% block content %}
+
+<div class="container uc-container">
+  <div class="row">
+    <div class="col-md-9">
+    
+      <div class="uc-team-info-section">
+        <div class="page-header">
+          <h3 id="team-records">Team Records</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover records">
+            <tr>
+              <th>Event
+              <th>Event Name
+              <th>Record Holder(s)
+              <th>Date Set
+              <th>Time
+              <th>Pool
+            </tr>
+            {% for instance in team_list %}
+            <tr>
+              <td>{{ instance.event_number }}</td>
+              <td>{{ instance.event_name }}</td>
+              <td>{{ instance.swimmer_name }}</td>
+              <td>{{ instance.date }}</td>
+              <td>{{ instance.time }}</td>
+              <td><abbr title="{{ instance.get_pool_display }}">{{ instance.pool }}</abbr></td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div><!-- /.table-responsive -->
+      </div><!-- /.uc-team-info-section -->
+      
+      <div class="uc-team-info-section">
+        <div class="page-header">
+          <h3 id="pool-records">Pool Records</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover records">
+            <tr>
+              <th>Event
+              <th>Event Name
+              <th>Record Holder(s)
+              <th>Team
+              <th>Date Set
+              <th>Time
+            </tr>
+            {% for instance in pool_list %}
+            <tr>
+              <td>{{ instance.event_number }}</td>
+              <td>{{ instance.event_name }}</td>
+              <td>{{ instance.swimmer_name }}</td>
+              <td><abbr title="{{ instance.get_swimmer_team_display }}">{{ instance.swimmer_team }}</abbr></td>
+              <td>{{ instance.date }}</td>
+              <td>{{ instance.time }}</td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div><!-- /.table-responsive -->
+      </div><!-- /.uc-team-info-section -->
+      
+    </div><!-- /.col-md-9 -->
+
+    <div class="col-md-3">
+      <div class="uc-sidebar hidden-print" role="complementary">
+        <ul class="nav uc-sidenav">
+          <li><a href="#team-records">Team Records</a>
+          <li><a href="#pool-records">Pool Records</a>
+        </ul>
+      </div><!-- /.uc-sidebar -->
+    </div><!-- /.col-md-3 -->
+  </div><!-- /.row -->
+</div><!-- /.container -->
+
+{% endblock %}
+

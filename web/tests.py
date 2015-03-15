@@ -21,6 +21,7 @@
 """Unit tests.
 
 .. moduleauthor:: Yang Yang <y4n9squared@gmail.com>
+.. moduleauthor:: Andrew Wang <wangandrewt@gmail.com>
 
 """
 
@@ -103,3 +104,11 @@ class WebViewsTestCase(TestCase):
     def test_http404(self):
         response = self.client.get('/web/doesnotexist')
         self.assertEqual(response.status_code, 404)
+
+
+class RecordsPageTestCase(TestCase):
+
+    def test_records_page(self):
+        with self.assertTemplateUsed('web/records.html'):
+            response = self.client.get('/web/records/')
+            self.assertEqual(response.status_code, 200)

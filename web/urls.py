@@ -34,4 +34,5 @@ urlpatterns = patterns(
     url(r'^volunteer/', views.volunteer, name='volunteer'),
     url(r'^shop/', views.shop, name='shop'),
     url(r'^coaches/', views.coaches, name='coaches'),
+    url(r'^records/', views.records, name='records'),
 )
