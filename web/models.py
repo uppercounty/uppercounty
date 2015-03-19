@@ -21,6 +21,7 @@
 """Django models.
 
 .. moduleauthor:: Yang Yang <y4n9squared@gmail.com>
+.. moduleauthor:: Andrew Wang <wangandrewt@gmail.com>
 
 """
 
@@ -99,3 +100,125 @@ class UniqueEmailUser(AbstractBaseUser):
     @property
     def is_staff(self):
         return self.is_admin
+
+
+class SwimRecord(models.Model):
+    RECORD_TYPE_POOL = 1
+    RECORD_TYPE_TEAM = 2
+    RECORD_TYPE_CHOICES = (
+        (RECORD_TYPE_POOL, 'Pool'),
+        (RECORD_TYPE_TEAM, 'Team'),
+    )
+    TEAM_CHOICES = (
+        ('A', 'Ashton'),
+        ('B', 'Bannockburn'),
+        ('BE', 'Bethesda'),
+        ('C', 'Cedarbrook'),
+        ('CA', 'Calverton'),
+        ('CB', 'Connecticut Belair'),
+        ('CCR', 'Chevy Chase Recreation Association'),
+        ('CG', 'Country Glen'),
+        ('CLK', 'Clarksburg Village'),
+        ('CLM', 'Clopper Mill Kingsview'),
+        ('CS', 'Carderock Springs'),
+        ('CTC', 'Clarksburg Town Center'),
+        ('D', 'Daleview'),
+        ('DA', 'Damascus'),
+        ('DF', 'Diamond Farm'),
+        ('DT', 'Darnestown'),
+        ('EG', 'East Gate'),
+        ('EW', 'Eldwick'),
+        ('FH', 'Flower Hill'),
+        ('FM', 'Fallsmead'),
+        ('FO', 'Forest Knolls'),
+        ('FR', 'Franklin Knolls'),
+        ('FV', 'Flower Valley'),
+        ('G', 'Glenwood'),
+        ('GER', 'Germantown'),
+        ('GM', 'Glenmont'),
+        ('GP', 'Garrett Park'),
+        ('H', 'Hillandale'),
+        ('HA', 'Hallowell'),
+        ('IF', 'Inverness Recreation Club'),
+        ('JC', 'James Creek'),
+        ('K', 'Kenmont'),
+        ('KFM', 'King Farm'),
+        ('KL', 'Kentlands'),
+        ('KM', 'Kemp Mill'),
+        ('LB', 'Long Branch'),
+        ('LF', 'Little Falls'),
+        ('LLD', 'Lakelands'),
+        ('LM', 'Lake Marion'),
+        ('MB', 'Middlebridge'),
+        ('MCF', 'Manchester Farm'),
+        ('MCT', 'Mill Creek Towne'),
+        ('MM', 'Merrimack Park'),
+        ('MO', 'Mohican'),
+        ('MS', 'Montgomery Square'),
+        ('MW', 'Manor Woods'),
+        ('NCC', 'North Chevy Chase'),
+        ('NGV', 'Norbeck Grove'),
+        ('NH', 'Norbeck Hills'),
+        ('NMC', 'New Mark Commons'),
+        ('NO', 'North Creek'),
+        ('NWB', 'Northwest Branch'),
+        ('OF', 'Old Farm'),
+        ('OG', 'Old Georgetown'),
+        ('OM', 'Olney Mill'),
+        ('P', 'Parkland'),
+        ('PA', 'Palisades'),
+        ('PGL', 'Potomac Glen'),
+        ('PL', 'Poolesville'),
+        ('PLT', 'Plantations'),
+        ('PO', 'Potomac'),
+        ('PW', 'Potomac Woods'),
+        ('QO', 'Quince Orchard'),
+        ('QV', 'Quail Valley'),
+        ('RC', 'Rock Creek'),
+        ('RE', 'Regency Estates'),
+        ('RF', 'River Falls'),
+        ('RH', 'Robin Hood'),
+        ('RS', 'Rockshire'),
+        ('RV', 'Rockville'),
+        ('SB', 'Stonebridge'),
+        ('SG', 'Stonegate'),
+        ('SL', 'Seven Locks'),
+        ('SO', 'Somerset'),
+        ('TA', 'Tanterra'),
+        ('TB', 'Twinbrook'),
+        ('TF', 'Twin Farms'),
+        ('TH', 'Tallyho'),
+        ('TN', 'Tanglewood'),
+        ('TW', 'Tilden Woods'),
+        ('UC', 'Upper County'),
+        ('W', 'Whetstone'),
+        ('WCF', 'Woodcliffe'),
+        ('WG', 'Woodley Gardens'),
+        ('WHI', 'West Hillandale'),
+        ('WL', 'Westleigh'),
+        ('WLP', 'Willows Of Potomac'),
+        ('WM', 'Wildwood Manor'),
+        ('WTL', 'Waters Landing'),
+        ('WW', 'Wheaton Woods'),
+        ('WWD', 'Washingtonian Woods'),
+    )
+
+    record_type = models.PositiveSmallIntegerField(choices=RECORD_TYPE_CHOICES)
+    event_number = models.PositiveSmallIntegerField()
+    event_name = models.CharField(max_length=100)
+    swimmer_name = models.CharField(max_length=400)
+    swimmer_team = models.CharField(blank=True, max_length=4,
+                                    choices=TEAM_CHOICES)
+    time = models.CharField(max_length=9)
+    date = models.DateField()
+    pool = models.CharField(blank=True, max_length=4, choices=TEAM_CHOICES)
+
+    def __unicode__(self):
+        return (dict(self.RECORD_TYPE_CHOICES).get(self.record_type) +
+                " Record for Swimmers=[" + self.swimmer_name + "] of team=[" +
+                self.swimmer_team + "] Event=[#" + str(self.event_number) + " "
+                + self.event_name + "] on " + self.date.strftime('%Y-%m-%d') +
+                " at pool=[" + self.pool + "] with time " + self.time)
+
+    def __str__(self):
+        return unicode(self).encode('utf-8')

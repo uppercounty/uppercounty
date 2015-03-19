@@ -379,6 +379,15 @@ table {
 .practice-schedule td {
   text-align: center;
 }
+
+/*
+ * Records section
+ */
+abbr {
+    font-variant: none;
+    border-bottom: 1px dotted black;
+}
+
 /*
  * Callouts
  *

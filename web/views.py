@@ -21,6 +21,7 @@
 """Module for views
 
 .. moduleauthor:: Yang Yang <y4n9squared@gmail.com>
+.. moduleauthor:: Andrew Wang <wangandrewt@gmail.com>
 
 """
 
@@ -28,6 +29,8 @@ from django import forms
 from django.http import HttpResponseNotFound
 from django.shortcuts import render
 from django.template.loader import render_to_string
+
+from web.models import SwimRecord
 
 
 def index(request):
@@ -48,6 +51,18 @@ def shop(request):
 
 def coaches(request):
     return render(request, 'web/coaches.html')
+
+
+def records(request):
+    results = SwimRecord.objects.all()
+    team_list = [e for e in results if
+                 e.record_type == SwimRecord.RECORD_TYPE_TEAM]
+    pool_list = [e for e in results if
+                 e.record_type == SwimRecord.RECORD_TYPE_POOL]
+    return render(request, 'web/records.html', {
+        'team_list': sorted(team_list, key=lambda record: record.event_number),
+        'pool_list': sorted(pool_list, key=lambda record: record.event_number)
+    })
 
 
 def handler404(request):
