@@ -33,11 +33,15 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_URL = '/static/'
+STATIC_URL_SUBDIR = 'static'
+STATIC_URL = '/%s/' % STATIC_URL_SUBDIR
 STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, '../web/static'),
 )
+MEDIA_ROOT = os.path.join(BASE_DIR, "../web/media")
+MEDIA_URL_SUBDIR = 'media'
+MEDIA_URL = '/%s/' % MEDIA_URL_SUBDIR
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
@@ -109,11 +113,14 @@ USE_L10N = True
 USE_TZ = True
 
 if not DEBUG:
-    # AWS static file configuration
+    # AWS static and media file configuration
     AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_QUERYSTRING_AUTH = False
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    STATIC_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+    DEFAULT_FILE_STORAGE = 'uppercounty.custom_storages.MediaStorage'
+    STATICFILES_STORAGE = 'uppercounty.custom_storages.StaticStorage'
+    STATIC_URL = 'http://%s.s3.amazonaws.com/%s/' % (AWS_STORAGE_BUCKET_NAME,
+                                                     STATIC_URL_SUBDIR)
+    MEDIA_URL = 'http://%s.s3.amazonaws.com/%s/' % (AWS_STORAGE_BUCKET_NAME,
+                                                    MEDIA_URL_SUBDIR)

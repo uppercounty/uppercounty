@@ -1,4 +1,4 @@
-# Copyright (c) 2014 Upper County Dolphins
+# Copyright (c) 2015 Upper County Dolphins
 #
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the "Software"),
@@ -18,30 +18,20 @@
 # TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
 # OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-"""URL confs for Upper County website
+"""Extending the Amazon S3 Django storages to separate static and media files
 
-.. moduleauthor:: Yang Yang <y4n9squared@gmail.com>
 .. moduleauthor:: Andrew Wang <wangandrewt@gmail.com>
 
 """
 
+
 from django.conf import settings
-from django.conf.urls import patterns, include, url
-from django.contrib import admin
-from django.conf.urls.static import static
+from storages.backends.s3boto import S3BotoStorage
 
-admin.autodiscover()
 
-urlpatterns = patterns(
-    '',
-    url(r'^$', include('web.urls')),
-    url(r'^web/', include('web.urls')),
-    url(r'^admin/', include(admin.site.urls)),
-)
+class StaticStorage(S3BotoStorage):
+    location = settings.STATIC_URL_SUBDIR
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
 
-handler404 = 'web.views.handler404'
-handler500 = 'web.views.handler500'
+class MediaStorage(S3BotoStorage):
+    location = settings.MEDIA_URL_SUBDIR
