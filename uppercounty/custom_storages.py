@@ -24,14 +24,7 @@
 
 """
 
-
-from django.conf import settings
 from storages.backends.s3boto import S3BotoStorage
 
-
-class StaticStorage(S3BotoStorage):
-    location = settings.STATIC_URL_SUBDIR
-
-
-class MediaStorage(S3BotoStorage):
-    location = settings.MEDIA_URL_SUBDIR
+StaticS3BotoStorage = lambda: S3BotoStorage(location='static')
+MediaS3BotoStorage = lambda: S3BotoStorage(location='media')
