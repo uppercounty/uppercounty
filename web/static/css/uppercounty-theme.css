@@ -397,7 +397,9 @@ abbr {
 
 /* Common styles for all types */
 .bs-callout {
-  border-left: 3px solid #eee;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
   margin: 20px 0;
   padding: 20px;
 }
@@ -409,27 +411,29 @@ abbr {
   margin-bottom: 0;
 }
 
+/* Tighten space between multiple callouts */
+.bs-callout + .bs-callout {
+  margin-top: -5px;
+}
+
 /* Variations */
 .bs-callout-danger {
-  background-color: #fdf7f7;
-  border-color: #eed3d7;
+  border-left-color: #ce4844;
 }
 .bs-callout-danger h4 {
-  color: #b94a48;
+  color: #ce4844;
 }
 .bs-callout-warning {
-  background-color: #faf8f0;
-  border-color: #faebcc;
+  border-left-color: #aa6708;
 }
 .bs-callout-warning h4 {
-  color: #c09853;
+  color: #aa6708;
 }
 .bs-callout-info {
-  background-color: #f4f8fa;
-  border-color: #bce8f1;
+  border-left-color: #1b809e;
 }
 .bs-callout-info h4 {
-  color: #3a87ad;
+  color: #1b809e;
 }
 
 /*
