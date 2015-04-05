@@ -240,10 +240,10 @@ class Meet(models.Model):
     meet_type = models.PositiveSmallIntegerField(choices=MEET_TYPE_CHOICES)
     name = models.CharField(max_length=200)
     date = models.DateField()
-    program_file = models.FileField(upload_to='meet-documents')
-    program_date_updated = models.DateField()
-    results_file = models.FileField(upload_to='meet-documents')
-    results_date_updated = models.DateField()
+    program_file = models.FileField(upload_to='meet-documents', blank=True)
+    program_date_updated = models.DateField(blank=True, null=True)
+    results_file = models.FileField(upload_to='meet-documents', blank=True)
+    results_date_updated = models.DateField(blank=True, null=True)
 
     def was_program_date_updated_recently(self):
         return self.program_date_updated >= (datetime.date.today()
