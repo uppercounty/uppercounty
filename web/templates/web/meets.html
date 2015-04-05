@@ -24,14 +24,20 @@
               <td>{{ instance.date }}</td>
               <td>{{ instance.name }}</td>
               <td>
-                <ul>{% for doc in instance.meetdocument_set.all %}
-                  <li><a href="{{ doc.document_file.url }}">
-                    {{ doc.get_document_type_display }}
-                    {% if doc.was_updated_recently %}
+                <ul>
+                  <li><a href="{{ instance.program_file.url }}">
+                    Program
+                    {% if instance.was_program_date_updated_recently %}
                       <span class="label label-success">New</span>
                     {% endif %}
                   </a></li>
-                {% endfor %}</ul>
+                  <li><a href="{{ instance.results_file.url }}">
+                    Results
+                    {% if instance.was_results_date_updated_recently %}
+                      <span class="label label-success">New</span>
+                    {% endif %}
+                  </a></li>
+                </ul>
               </td>
             </tr>
             {% endfor %}
@@ -55,14 +61,20 @@
               <td>{{ instance.date }}</td>
               <td>{{ instance.name }}</td>
               <td>
-                <ul>{% for doc in instance.meetdocument_set.all %}
-                  <li><a href="{{ doc.document_file.url }}">
-                    {{ doc.get_document_type_display }}
-                    {% if doc.was_updated_recently %}
+                <ul>
+                  <li><a href="{{ instance.program_file.url }}">
+                    Program
+                    {% if instance.was_program_date_updated_recently %}
                       <span class="label label-success">New</span>
                     {% endif %}
                   </a></li>
-                {% endfor %}</ul>
+                  <li><a href="{{ instance.results_file.url }}">
+                    Results
+                    {% if instance.was_results_date_updated_recently %}
+                      <span class="label label-success">New</span>
+                    {% endif %}
+                  </a></li>
+                </ul>
               </td>
             </tr>
             {% endfor %}
@@ -86,14 +98,20 @@
               <td>{{ instance.date }}</td>
               <td>{{ instance.name }}</td>
               <td>
-                <ul>{% for doc in instance.meetdocument_set.all %}
-                  <li><a href="{{ doc.document_file.url }}">
-                    {{ doc.get_document_type_display }}
-                    {% if doc.was_updated_recently %}
+                <ul>
+                  <li><a href="{{ instance.program_file.url }}">
+                    Program
+                    {% if instance.was_program_date_updated_recently %}
                       <span class="label label-success">New</span>
                     {% endif %}
                   </a></li>
-                {% endfor %}</ul>
+                  <li><a href="{{ instance.results_file.url }}">
+                    Results
+                    {% if instance.was_results_date_updated_recently %}
+                      <span class="label label-success">New</span>
+                    {% endif %}
+                  </a></li>
+                </ul>
               </td>
             </tr>
             {% endfor %}

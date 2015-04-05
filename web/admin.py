@@ -27,22 +27,16 @@
 
 from django.contrib import admin
 
-from .models import SwimRecord, Meet, MeetDocument
+from .models import SwimRecord, Meet
 
 
 class SwimRecordAdmin(admin.ModelAdmin):
     list_filter = ['record_type']
 
 
-class MeetDocumentInline(admin.StackedInline):
-    model = MeetDocument
-    extra = 0
-
-
 class MeetAdmin(admin.ModelAdmin):
     list_filter = ['meet_type']
     list_display = ('name', 'meet_type', 'date')
-    inlines = [MeetDocumentInline]
 
 admin.site.register(SwimRecord, SwimRecordAdmin)
 admin.site.register(Meet, MeetAdmin)

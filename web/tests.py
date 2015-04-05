@@ -29,7 +29,7 @@ import datetime
 from django.test import TestCase
 from django.utils import timezone
 
-from .models import UniqueEmailUser, MeetDocument
+from .models import UniqueEmailUser, Meet
 
 
 class UniqueEmailUserTestCase(TestCase):
@@ -124,14 +124,24 @@ class MeetsPageTestCase(TestCase):
             self.assertEqual(response.status_code, 200)
 
 
-class MeetDocumentTestCase(TestCase):
+class MeetTestCase(TestCase):
 
-    def test_was_updated_recently_with_old_doc(self):
+    def test_was_program_date_updated_recently_with_old_doc(self):
         date = datetime.date.today() - datetime.timedelta(days=3)
-        doc = MeetDocument(date_updated=date)
-        self.assertEqual(doc.was_updated_recently(), False)
+        doc = Meet(program_date_updated=date)
+        self.assertEqual(doc.was_program_date_updated_recently(), False)
 
-    def test_was_updated_recently(self):
+    def test_was_program_date_updated_recently(self):
         date = datetime.date.today() - datetime.timedelta(days=1)
-        doc = MeetDocument(date_updated=date)
-        self.assertEqual(doc.was_updated_recently(), True)
+        doc = Meet(program_date_updated=date)
+        self.assertEqual(doc.was_program_date_updated_recently(), True)
+
+    def test_was_results_date_updated_recently_with_old_doc(self):
+        date = datetime.date.today() - datetime.timedelta(days=3)
+        doc = Meet(results_date_updated=date)
+        self.assertEqual(doc.was_results_date_updated_recently(), False)
+
+    def test_was_results_date_updated_recently(self):
+        date = datetime.date.today() - datetime.timedelta(days=1)
+        doc = Meet(results_date_updated=date)
+        self.assertEqual(doc.was_results_date_updated_recently(), True)

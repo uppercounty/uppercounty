@@ -240,40 +240,25 @@ class Meet(models.Model):
     meet_type = models.PositiveSmallIntegerField(choices=MEET_TYPE_CHOICES)
     name = models.CharField(max_length=200)
     date = models.DateField()
+    program_file = models.FileField(upload_to='meet-documents')
+    program_date_updated = models.DateField()
+    results_file = models.FileField(upload_to='meet-documents')
+    results_date_updated = models.DateField()
+
+    def was_program_date_updated_recently(self):
+        return self.program_date_updated >= (datetime.date.today()
+                                             - datetime.timedelta(days=2))
+    was_program_date_updated_recently.boolean = True
+
+    def was_results_date_updated_recently(self):
+        return self.results_date_updated >= (datetime.date.today()
+                                             - datetime.timedelta(days=2))
+    was_results_date_updated_recently.boolean = True
 
     def __unicode__(self):
-        return (self.name + " " +
-                dict(self.MEET_TYPE_CHOICES).get(self.meet_type) +
-                " Meet on " + self.date.strftime('%Y-%m-%d'))
-
-    def __str__(self):
-        return unicode(self).encode('utf-8')
-
-
-class MeetDocument(models.Model):
-    DOCUMENT_TYPE_PROGRAM = 1
-    DOCUMENT_TYPE_RESULTS = 2
-    DOCUMENT_TYPE_CHOICES = (
-        (DOCUMENT_TYPE_PROGRAM, 'Program'),
-        (DOCUMENT_TYPE_RESULTS, 'Results'),
-    )
-
-    document_type = models.PositiveSmallIntegerField(
-        choices=DOCUMENT_TYPE_CHOICES)
-    meet = models.ForeignKey(Meet)
-    document_file = models.FileField(upload_to='meet-documents')
-    date_updated = models.DateField()
-
-    def was_updated_recently(self):
-        return (self.date_updated >= datetime.date.today() -
-                datetime.timedelta(days=2))
-    was_updated_recently.boolean = True
-
-    def __unicode__(self):
-        return ("Document Type: " +
-                dict(self.DOCUMENT_TYPE_CHOICES).get(self.document_type) +
-                " " + self.document_file.name + " for meet " + str(self.meet) +
-                " updated " + self.date_updated.strftime('%Y-%m-%d'))
+        return self.name + " "
+        + dict(self.MEET_TYPE_CHOICES).get(self.meet_type)
+        + " Meet on " + self.date.strftime('%Y-%m-%d')
 
     def __str__(self):
         return unicode(self).encode('utf-8')
