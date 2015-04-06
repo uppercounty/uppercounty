@@ -30,7 +30,7 @@ from django.http import HttpResponseNotFound
 from django.shortcuts import render
 from django.template.loader import render_to_string
 
-from web.models import SwimRecord
+from .models import SwimRecord, Meet
 
 
 def index(request):
@@ -39,6 +39,18 @@ def index(request):
 
 def team(request):
     return render(request, 'web/team.html')
+
+
+def meets(request):
+    results = Meet.objects.order_by('date')
+    a_meets = [e for e in results if e.meet_type == Meet.MEET_TYPE_A]
+    b_meets = [e for e in results if e.meet_type == Meet.MEET_TYPE_B]
+    other_meets = [e for e in results if e.meet_type == Meet.MEET_TYPE_OTHER]
+    return render(request, 'web/meets.html', {
+        'a_meets': a_meets,
+        'b_meets': b_meets,
+        'other_meets': other_meets,
+    })
 
 
 def volunteer(request):

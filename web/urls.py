@@ -21,6 +21,7 @@
 """URL conf file for website.
 
 .. moduleauthor:: Yang Yang <y4n9squared@gmail.com>
+.. moduleauthor:: Andrew Wang <wangandrewt@gmail.com>
 
 """
 
@@ -31,6 +32,7 @@ urlpatterns = patterns(
     '',
     url(r'^$', views.index, name='index'),
     url(r'team/', views.team, name='team'),
+    url(r'^meets/$', views.meets, name='meets'),
     url(r'^volunteer/', views.volunteer, name='volunteer'),
     url(r'^shop/', views.shop, name='shop'),
     url(r'^coaches/', views.coaches, name='coaches'),

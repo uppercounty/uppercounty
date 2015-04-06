@@ -389,6 +389,13 @@ abbr {
 }
 
 /*
+ * Meets section
+ */
+.meets ul {
+    margin-bottom: 0px;
+}
+
+/*
  * Callouts
  *
  * Not quite alerts, but custom and useful notes

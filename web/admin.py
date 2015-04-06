@@ -27,10 +27,16 @@
 
 from django.contrib import admin
 
-from web.models import SwimRecord
+from .models import SwimRecord, Meet
 
 
 class SwimRecordAdmin(admin.ModelAdmin):
     list_filter = ['record_type']
 
+
+class MeetAdmin(admin.ModelAdmin):
+    list_filter = ['meet_type']
+    list_display = ('name', 'meet_type', 'date')
+
 admin.site.register(SwimRecord, SwimRecordAdmin)
+admin.site.register(Meet, MeetAdmin)

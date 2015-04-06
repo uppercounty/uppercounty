@@ -25,8 +25,11 @@
 
 """
 
+import datetime
+import os
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db import models
+from django.utils import timezone
 
 
 class UniqueEmailUserManager(BaseUserManager):
@@ -219,6 +222,43 @@ class SwimRecord(models.Model):
                 self.swimmer_team + "] Event=[#" + str(self.event_number) + " "
                 + self.event_name + "] on " + self.date.strftime('%Y-%m-%d') +
                 " at pool=[" + self.pool + "] with time " + self.time)
+
+    def __str__(self):
+        return unicode(self).encode('utf-8')
+
+
+class Meet(models.Model):
+    MEET_TYPE_A = 1
+    MEET_TYPE_B = 2
+    MEET_TYPE_OTHER = 3
+    MEET_TYPE_CHOICES = (
+        (MEET_TYPE_A, 'A'),
+        (MEET_TYPE_B, 'B'),
+        (MEET_TYPE_OTHER, 'Other'),
+    )
+
+    meet_type = models.PositiveSmallIntegerField(choices=MEET_TYPE_CHOICES)
+    name = models.CharField(max_length=200)
+    date = models.DateField()
+    program_file = models.FileField(upload_to='meet-documents', blank=True)
+    program_date_updated = models.DateField(blank=True, null=True)
+    results_file = models.FileField(upload_to='meet-documents', blank=True)
+    results_date_updated = models.DateField(blank=True, null=True)
+
+    def was_program_date_updated_recently(self):
+        return self.program_date_updated >= (datetime.date.today()
+                                             - datetime.timedelta(days=2))
+    was_program_date_updated_recently.boolean = True
+
+    def was_results_date_updated_recently(self):
+        return self.results_date_updated >= (datetime.date.today()
+                                             - datetime.timedelta(days=2))
+    was_results_date_updated_recently.boolean = True
+
+    def __unicode__(self):
+        return self.name + " "
+        + dict(self.MEET_TYPE_CHOICES).get(self.meet_type)
+        + " Meet on " + self.date.strftime('%Y-%m-%d')
 
     def __str__(self):
         return unicode(self).encode('utf-8')
