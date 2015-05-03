@@ -86,8 +86,7 @@ WSGI_APPLICATION = 'uppercounty.wsgi.application'
 
 AUTH_USER_MODEL = 'web.UniqueEmailUser'
 
-# Heroku database settings
-import dj_database_url
+# Local database settings
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -127,3 +126,7 @@ if not DEBUG:
 
     STATIC_URL = 'http://%s.s3.amazonaws.com/static/' % AWS_STORAGE_BUCKET_NAME
     MEDIA_URL = 'http://%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
+
+    # Parse database configuration from $DATABASE_URL
+    import dj_database_url
+    DATABASES['default'] = dj_database_url.config()
