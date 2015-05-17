@@ -213,15 +213,18 @@ class SwimRecord(models.Model):
     swimmer_team = models.CharField(blank=True, max_length=4,
                                     choices=TEAM_CHOICES)
     time = models.CharField(max_length=9)
-    date = models.DateField()
+    date = models.DateField(blank=True, null=True)
     pool = models.CharField(blank=True, max_length=4, choices=TEAM_CHOICES)
 
     def __unicode__(self):
-        return (dict(self.RECORD_TYPE_CHOICES).get(self.record_type) +
-                " Record for Swimmers=[" + self.swimmer_name + "] of team=[" +
-                self.swimmer_team + "] Event=[#" + str(self.event_number) + " "
-                + self.event_name + "] on " + self.date.strftime('%Y-%m-%d') +
-                " at pool=[" + self.pool + "] with time " + self.time)
+        result = (dict(self.RECORD_TYPE_CHOICES).get(self.record_type) +
+                  " Record for Swimmers=[" + self.swimmer_name + "] of team=["
+                  + self.swimmer_team + "] Event=[#" + str(self.event_number)
+                  + " " + self.event_name + "] on")
+        if (self.date):
+            result += " " + self.date.strftime('%Y-%m-%d')
+        result += " at pool=[" + self.pool + "] with time " + self.time
+        return result
 
     def __str__(self):
         return unicode(self).encode('utf-8')
