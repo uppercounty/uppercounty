@@ -27,7 +27,7 @@
               <td>{{ instance.event_number }}</td>
               <td>{{ instance.event_name }}</td>
               <td>{{ instance.swimmer_name }}</td>
-              <td>{{ instance.date }}</td>
+              <td>{% if instance.date %}{{ instance.date }}{% endif %}</td>
               <td>{{ instance.time }}</td>
               <td><abbr title="{{ instance.get_pool_display }}">{{ instance.pool }}</abbr></td>
             </tr>
@@ -56,7 +56,7 @@
               <td>{{ instance.event_name }}</td>
               <td>{{ instance.swimmer_name }}</td>
               <td><abbr title="{{ instance.get_swimmer_team_display }}">{{ instance.swimmer_team }}</abbr></td>
-              <td>{{ instance.date }}</td>
+              <td>{% if instance.date %}{{ instance.date }}{% endif %}</td>
               <td>{{ instance.time }}</td>
             </tr>
             {% endfor %}
