@@ -37,6 +37,7 @@ coverage.xml
 *.sqlite3
 staticfiles/
 web/media
+web/migrations
 
 # heroku stuff
 .env
