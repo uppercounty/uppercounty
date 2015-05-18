@@ -26,8 +26,11 @@
 """
 
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 
-from .models import SwimRecord, Meet
+from .forms import UniqueEmailUserCreationForm, UniqueEmailUserChangeForm
+
+from .models import SwimRecord, Meet, UniqueEmailUser
 
 
 class SwimRecordAdmin(admin.ModelAdmin):
@@ -40,3 +43,26 @@ class MeetAdmin(admin.ModelAdmin):
 
 admin.site.register(SwimRecord, SwimRecordAdmin)
 admin.site.register(Meet, MeetAdmin)
+
+
+class UniqueEmailUserAdmin(UserAdmin):
+    # The form to add and change a UniqueEmailUser
+
+    fieldsets = (
+        (None, {'fields': ('email', 'password', 'first_name', 'last_name')}),
+        ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser',
+                                    'groups', 'user_permissions')}),
+        ('Metadata', {'fields': ('last_login',)}),
+    )
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('email', 'password1', 'password2')}),
+    )
+    form = UniqueEmailUserChangeForm
+    add_form = UniqueEmailUserCreationForm
+    list_display = ('email', 'first_name', 'last_name', 'is_staff')
+    search_fields = ('email', 'first_name', 'last_name')
+    ordering = ('email',)
+
+admin.site.register(UniqueEmailUser, UniqueEmailUserAdmin)

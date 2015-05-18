@@ -27,7 +27,8 @@
 
 import datetime
 import os
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import(AbstractBaseUser, BaseUserManager,
+                                       PermissionsMixin)
 from django.db import models
 from django.utils import timezone
 
@@ -49,6 +50,7 @@ class UniqueEmailUserManager(BaseUserManager):
         user = self.model(email=self.normalize_email(email),
                           first_name=first_name, last_name=last_name)
         user.set_password(password)
+        user.is_superuser = False
         user.save()
         return user
 
@@ -64,12 +66,13 @@ class UniqueEmailUserManager(BaseUserManager):
         """
 
         user = self.create_user(email, first_name, last_name, password)
-        user.is_admin = True
+        user.is_staff = True
+        user.is_superuser = True
         user.save()
         return user
 
 
-class UniqueEmailUser(AbstractBaseUser):
+class UniqueEmailUser(AbstractBaseUser, PermissionsMixin):
     """Custom user model for authentication using emails instead of
     usernames"""
     email = models.EmailField(verbose_name='email address', max_length=255,
@@ -77,7 +80,7 @@ class UniqueEmailUser(AbstractBaseUser):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     is_active = models.BooleanField(default=True)
-    is_admin = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=False)
 
     objects = UniqueEmailUserManager()
 
@@ -92,17 +95,8 @@ class UniqueEmailUser(AbstractBaseUser):
         """Returns the first name of the user"""
         return self.first_name.title()
 
-    def has_perm(self, perm, obj=None):
-        """Returns permissions of user"""
-        return True
-
-    def has_module_perms(self, app_label):
-        """Returns permission of user to view `app_label`"""
-        return True
-
-    @property
-    def is_staff(self):
-        return self.is_admin
+    class Meta:
+        verbose_name = "User"
 
 
 class SwimRecord(models.Model):
