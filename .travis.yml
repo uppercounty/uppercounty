@@ -16,7 +16,7 @@ install:
 - pip -q install pep8
 - pip -q install coveralls
 before_script:
-- pep8 uppercounty web
+- pep8 --exclude=*/migrations/* uppercounty web
 - psql -c 'create database ucdb;' -U postgres
 script: coverage run --source=web manage.py test
 after_script: coveralls
