@@ -60,13 +60,13 @@ class UniqueEmailUserTestCase(TestCase):
         user = UniqueEmailUser.objects.get(email="johndoe@example.com")
         self.assertEqual(user.get_short_name(), "John")
 
-    def test_has_perm(self):
+    def test_does_not_have_perm(self):
         user = UniqueEmailUser.objects.get(email="johndoe@example.com")
-        self.assertTrue(user.has_perm('web'))
+        self.assertFalse(user.has_perm('web'))
 
-    def test_has_module_perms(self):
+    def test_does_not_have_module_perms(self):
         user = UniqueEmailUser.objects.get(email="johndoe@example.com")
-        self.assertTrue(user.has_module_perms('web'))
+        self.assertFalse(user.has_module_perms('web'))
 
     def test_is_not_staff(self):
         user = UniqueEmailUser.objects.get(email="johndoe@example.com")
