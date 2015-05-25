@@ -14,9 +14,7 @@ install:
 - pip -q install Django==$DJANGO
 - pip -q install -r requirements.txt --use-mirrors
 - pip -q install pep8
-- pip -q install coveralls
 before_script:
 - pep8 --exclude=*/migrations/* uppercounty web
 - psql -c 'create database ucdb;' -U postgres
-script: coverage run --source=web manage.py test
-after_script: coveralls
+script: python manage.py test
