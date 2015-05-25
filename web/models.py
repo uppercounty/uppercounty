@@ -243,11 +243,15 @@ class Meet(models.Model):
     results_date_updated = models.DateField(blank=True, null=True)
 
     def was_program_date_updated_recently(self):
+        if not self.program_date_updated:
+            return False
         return self.program_date_updated >= (datetime.date.today()
                                              - datetime.timedelta(days=2))
     was_program_date_updated_recently.boolean = True
 
     def was_results_date_updated_recently(self):
+        if not self.results_date_updated:
+            return False
         return self.results_date_updated >= (datetime.date.today()
                                              - datetime.timedelta(days=2))
     was_results_date_updated_recently.boolean = True
