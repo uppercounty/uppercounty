@@ -9,10 +9,9 @@ env:
   - secure: Xi0zTN6in6+n3G2F1zzaFlUUZtcN1fTg9Iz7rf1mXNi1UpkuI3oOkt8rukwSgihMldWcxh1LWHyWSqVogH2rgIdr3mFyrxN3x06h4GA6HuECpy9VijqE7zDfOZGr8RM2Ughg+2JbQqfMcpSqPSsWv4y+nuqnjTcV9hbg8BGI/uw=
   - DATABASE_URL='postgres://postgres:@localhost:5432/ucdb'
   matrix:
-  - DJANGO=1.7 DB=postgres
+  - DB=postgres
 install:
-- pip -q install Django==$DJANGO
-- pip -q install -r requirements.txt --use-mirrors
+- pip -q install -r requirements.txt
 - pip -q install pep8
 before_script:
 - pep8 --exclude=*/migrations/* uppercounty web
