@@ -30,9 +30,9 @@ https://docs.djangoproject.com/en/1.7/howto/deployment/wsgi/
 """
 
 import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "uppercounty.settings")
-
 from django.core.wsgi import get_wsgi_application
 from dj_static import Cling
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "uppercounty.settings")
 
 application = Cling(get_wsgi_application())

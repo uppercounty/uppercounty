@@ -211,11 +211,11 @@ class SwimRecord(models.Model):
     pool = models.CharField(blank=True, max_length=4, choices=TEAM_CHOICES)
 
     def __unicode__(self):
-        result = (dict(self.RECORD_TYPE_CHOICES).get(self.record_type) +
-                  " Record for Swimmers=[" + self.swimmer_name + "] of team=["
-                  + self.swimmer_team + "] Event=[#" + str(self.event_number)
-                  + " " + self.event_name + "] on")
-        if (self.date):
+        result = dict(self.RECORD_TYPE_CHOICES).get(self.record_type) + \
+            " Record for Swimmers=[" + self.swimmer_name + \
+            "] of team=[" + self.swimmer_team + "] Event=[#" + \
+            str(self.event_number) + " " + self.event_name + "] on"
+        if self.date:
             result += " " + self.date.strftime('%Y-%m-%d')
         result += " at pool=[" + self.pool + "] with time " + self.time
         return result
@@ -245,15 +245,15 @@ class Meet(models.Model):
     def was_program_date_updated_recently(self):
         if not self.program_date_updated:
             return False
-        return self.program_date_updated >= (datetime.date.today()
-                                             - datetime.timedelta(days=2))
+        return self.program_date_updated >= \
+            datetime.date.today() - datetime.timedelta(days=2)
     was_program_date_updated_recently.boolean = True
 
     def was_results_date_updated_recently(self):
         if not self.results_date_updated:
             return False
-        return self.results_date_updated >= (datetime.date.today()
-                                             - datetime.timedelta(days=2))
+        return self.results_date_updated >= \
+            datetime.date.today() - datetime.timedelta(days=2)
     was_results_date_updated_recently.boolean = True
 
     def __unicode__(self):
