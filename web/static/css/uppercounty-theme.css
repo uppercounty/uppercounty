@@ -12,20 +12,6 @@ html, body {
   border-color: #2a6496;
   color: #2a6496;
 }
-.btn-outline.pull-bottom {
-  background-color: transparent;
-  border-color: #fff;
-  color: #fff;
-  left: 45%;
-  width: 120px;
-}
-.btn-outline.pull-bottom:hover,
-.btn-outline.pull-bottom:focus,
-.btn-outline.pull-bottom:active {
-  background-color: #fff;
-  border-color: #fff;
-  color: #000;
-}
 .btn-outline:hover,
 .btn-outline:focus,
 .btn-outline:active {
@@ -271,80 +257,51 @@ html, body {
   }
 }
 
-
-/* Home Page 
- *
- * Jumbotron styles
+/* Home Page
+ * 
+ * Carousel styles
  *
  */
-.jumbotron {
-  color: #fff;
-  padding: 40px 0;
+#pictures-carousel-container {
   position: relative;
+}
+#pictures-carousel {
+  background: #222;
+}
+#pictures-carousel .carousel-control {
+  /* Place on top of overlay */
+  z-index: 15;
+}
+
+#pictures-carousel-overlay { 
+  color: #fff;
+  position: absolute;
+  z-index: 12;
+  top: 35%;
+  left: 0;
+  width: 100%;
   text-align: center;
-  text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.75);
 }
-.jumbotron h1 {
-  font-size: 40px;
-  font-weight: bold;
-  letter-spacing: -1px;
-  line-height: 1;
-}
-.jumbotron p {
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.25;
-  margin-bottom: 20px;
-}
-.jumbotron a {
-  color: #fff;
-  color: rgba(255,255,255,0.5);
-  -o-transition: all .2s ease-in-out;
-  -moz-transition: all .2s ease-in-out;
-  -webkit-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
-}
-
-/* Masthead (home page) */
-.masthead {
-  background: url('../img/take-your-mark.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  color: #fff;
-  margin-bottom: 0;
-  padding: 100px 0 100px;
-}
-.masthead h1 {
-  font-size: 40px;
-  letter-spacing: -2px;
-  line-height: 1;
-  margin-bottom: 50px;
-}
-.masthead p {
-  font-size: 24px;
-  font-weight: 200;
-  line-height: 1.25;
-}
-.masthead-links {
-  list-style: none;
-  margin: 0;
-}
-.masthead-links li {
-  color: #fff;
-  color: rgba(255,255,255,.25);
-  display: inline;
-  padding: 0 10px;
-}
-
 @media(min-width: 768px) {
-  .masthead {
-    height: 100%;
-  }
-  .masthead h1 {
+  #pictures-carousel-overlay h1 {
     font-size: 60px;
   }
+}
+
+.btn-outline#scroll {
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
+  position: absolute;
+  left: 45%;
+  width: 120px;
+}
+.btn-outline#scroll:hover,
+.btn-outline#scroll:focus,
+.btn-outline#scroll:active {
+  background-color: #fff;
+  border-color: #fff;
+  color: #000;
 }
 
 /* 
