@@ -268,22 +268,43 @@ html, body {
 #pictures-carousel {
   background: #222;
 }
-#pictures-carousel .carousel-control {
-  /* Place on top of overlay */
+#pictures-carousel .carousel-indicators {
+  bottom: 0;
+  left: 0;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  max-width: 98%;
+  /* Enable scrollbars if carousel indicators don't fit */
+  overflow: auto;
+  white-space: nowrap;
+  width: auto;
+  /* Place on top of .carousel-control */
   z-index: 15;
 }
-
-#pictures-carousel-overlay { 
-  color: #fff;
-  position: absolute;
-  z-index: 12;
-  top: 35%;
-  left: 0;
-  width: 100%;
-  text-align: center;
+#pictures-carousel .carousel-indicators li {
+  border: 2px solid #FFF;
+  border-radius: 0;
+  height: 69px;
+  margin: 0;
+  margin-right: 5px !important;
+  white-space: normal;
+  width: 128px;
 }
+#pictures-carousel .carousel-indicators img {
+  height: 65px;
+  left: 0;
+  opacity: 1.0;
+  width: 128px;
+}
+#pictures-carousel .carousel-indicators li.active {
+  border: 2px solid #2A6496;
+}
+#pictures-carousel .carousel-indicators li.active img {
+  opacity: 0.6;
+}
+
 @media(min-width: 768px) {
-  #pictures-carousel-overlay h1 {
+  h1 {
     font-size: 60px;
   }
 }
