@@ -65,7 +65,7 @@
 
     $('#scroll').click(function() {
       $('html,body').animate({
-        scrollTop: window.scrollY + window.innerHeight + navHeight
+        scrollTop: $('#pictures-carousel')[0].scrollHeight
       }, 1000);
     });
   })
