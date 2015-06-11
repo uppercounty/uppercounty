@@ -31,5 +31,5 @@ class StaticS3BotoStorage(S3BotoStorage):
     location = 'static'
 
 
-def MediaS3BotoStorage(S3BotoStorage):
+class MediaS3BotoStorage(S3BotoStorage):
     location = 'media'
