@@ -43,5 +43,7 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
                           document_root=settings.MEDIA_ROOT)
 
+admin.site.site_header = 'UCD Website Administration'
+
 handler404 = 'web.views.handler404'
 handler500 = 'web.views.handler500'
