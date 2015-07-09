@@ -1,0 +1,86 @@
+{% extends "web/base.html" %}
+
+{% block title %}Practices · Upper County{% endblock %}
+
+{% block content %}
+
+<div class="container uc-container">
+  <div class="row">
+    <div class="col-md-9" role="main">
+      <div class="uc-team-info-section">
+        <div class="page-header">
+          <h3 id="practices">Practice Schedule</h3>
+        </div>
+        <h4 id="preseason">Preseason</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover practice-schedule">
+            <tr>
+              <th>Age Group
+              <th>Mon
+              <th>Tues
+              <th>Wed
+              <th>Thur
+              <th>Fri
+            <tr>
+              <th>10 & Under
+              <td colspan="5">4:30-5:30 pm
+            <tr>
+              <th>11 & Over
+              <td colspan="5">5:30-6:30 pm
+          </table>
+        </div><!-- /.table-responsive -->
+        <h4 id="season">Season</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover practice-schedule">
+            <tr>
+              <th>Age Group
+              <th>Mon
+              <th>Tues
+              <th>Wed
+              <th>Thur
+              <th>Fri
+            <tr>
+              <th>13 & Over
+              <td colspan="5">7:30-9:00 am
+            <tr>
+              <th>9-12 Year-old
+              <td colspan="5">9:00-10:00 am
+            <tr>
+              <th>8 & Under
+              <td colspan="4">10:00-11:00 am
+              <td>9:00-10:00 am
+            <tr>
+              <th>All
+              <td colspan="2">8:00-9:00 pm
+              <td>
+              <td>8:00-9:00 pm
+              <td>
+          </table>
+        </div><!-- /.table-responsive -->
+        <div class="bs-callout bs-callout-info">
+          <h4>Cancellations</h4>
+		  <p>Emergency cancellations due to inclement weather will be announced on the <a class="alert-link" href="//groups.yahoo.com/neo/groups/uppercountydolphins/conversations/messages">Yahoo group</a>. Subscribe for real-time announcements.
+        </div>
+        <div class="bs-callout bs-callout-info">
+          <h4>Stay up to date</h4>
+          <p>Subscribe to the <a class="alert-link" href="//www.google.com/calendar/embed?src=l1sbfdasf9s3jnmd87mndhhltg%40group.calendar.google.com">Google calendar</a> for event details.
+        </div>
+      </div><!-- /.uc-team-info-section -->
+    </div><!-- /.col-md-9 -->
+
+    <div class="col-md-3" role="complementary">
+      <nav class="uc-sidebar hidden-print hidden-xs hidden-sm">
+        <ul class="nav uc-sidenav" data-spy="affix">
+          <li><a href="#practices">Practice Schedule</a>
+            <ul class="nav">
+              <li><a href="#preseason">Preseason</a></li>
+              <li><a href="#season">Season</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav><!-- /.uc-sidebar -->
+    </div><!-- /.col-md-3 -->
+  </div><!-- /.row -->
+</div><!-- /.container -->
+
+{% endblock %}

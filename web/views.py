@@ -27,7 +27,7 @@
 
 from django import forms
 from django.http import HttpResponseNotFound
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 
 from .models import SwimRecord, Meet
@@ -38,7 +38,11 @@ def index(request):
 
 
 def team(request):
-    return render(request, 'web/team.html')
+    return redirect(practices, permanent=True)
+
+
+def practices(request):
+    return render(request, 'web/practices.html')
 
 
 def meets(request):

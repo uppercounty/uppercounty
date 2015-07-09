@@ -26,7 +26,7 @@
 """
 
 import datetime
-from django.test import TestCase
+from django.test import TestCase, SimpleTestCase
 from django.utils import timezone
 
 from .models import UniqueEmailUser, Meet
@@ -77,7 +77,7 @@ class UniqueEmailUserTestCase(TestCase):
         self.assertTrue(user.is_staff)
 
 
-class WebViewsTestCase(TestCase):
+class WebViewsTestCase(SimpleTestCase):
 
     def test_index(self):
         response = self.client.get('/')
@@ -89,6 +89,10 @@ class WebViewsTestCase(TestCase):
 
     def test_team_info_page(self):
         response = self.client.get('/web/team/')
+        self.assertRedirects(response, '/web/practices/', 301, 200)
+
+    def test_practices_page(self):
+        response = self.client.get('/web/practices/')
         self.assertEqual(response.status_code, 200)
 
     def test_volunteer_page(self):
