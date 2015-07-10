@@ -31,7 +31,8 @@ from web import views
 urlpatterns = patterns(
     '',
     url(r'^$', views.index, name='index'),
-    url(r'team/', views.team, name='team'),
+    url(r'^practices/$', views.practices, name='practices'),
+    url(r'^team/$', views.team, name='team'),
     url(r'^meets/$', views.meets, name='meets'),
     url(r'^volunteer/', views.volunteer, name='volunteer'),
     url(r'^shop/', views.shop, name='shop'),
