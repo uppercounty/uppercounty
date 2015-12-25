@@ -28,8 +28,7 @@
 from django.conf.urls import patterns, url
 from web import views
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^practices/$', views.practices, name='practices'),
     url(r'^team/$', views.team, name='team'),
@@ -38,4 +37,4 @@ urlpatterns = patterns(
     url(r'^shop/', views.shop, name='shop'),
     url(r'^coaches/', views.coaches, name='coaches'),
     url(r'^records/', views.records, name='records'),
-)
+]
