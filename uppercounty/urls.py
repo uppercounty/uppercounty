@@ -32,12 +32,11 @@ from django.conf.urls.static import static
 
 admin.autodiscover()
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^$', include('web.urls')),
     url(r'^web/', include('web.urls')),
     url(r'^admin/', include(admin.site.urls)),
-)
+]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
