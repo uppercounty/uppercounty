@@ -47,7 +47,7 @@
           </table>
         </div><!-- /.table-responsive -->
       </div><!-- /.uc-team-info-section -->
-      
+
       <div class="uc-team-info-section">
         <div class="page-header">
           <h3 id="b-meets">B Meets</h3>
@@ -88,7 +88,7 @@
           </table>
         </div><!-- /.table-responsive -->
       </div><!-- /.uc-team-info-section -->
-      
+
       <div class="uc-team-info-section">
         <div class="page-header">
           <h3 id="other-meets">Other Meets</h3>
@@ -130,6 +130,41 @@
         </div><!-- /.table-responsive -->
       </div><!-- /.uc-team-info-section -->
 
+      <div class="uc-team-info-section">
+        <div class="page-header">
+          <h3 id="archived-meets">Meets from Previous Years</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover meets">
+            <tr>
+              <th>Type
+              <th>Date
+              <th>Name
+              <th>Documents
+            </tr>
+            {% for instance in archived_meets %}
+            <tr>
+              <td>{{ instance.get_meet_type_display }}</td>
+              <td>{{ instance.date }}</td>
+              <td>{{ instance.name }}</td>
+              <td>
+                <ul>
+                  {% if instance.program_file %}
+                  <li>
+                    <a href="{{ instance.program_file.url }}">Program</a></li>
+                  {% endif %}
+                  {% if instance.results_file %}
+                  <li>
+                    <a href="{{ instance.results_file.url }}">Results</a></li>
+                  {% endif %}
+                </ul>
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div><!-- /.table-responsive -->
+      </div><!-- /.uc-team-info-section -->
+
     </div><!-- /.col-md-9 -->
 
     <div class="col-md-3" role="complementary">
@@ -138,6 +173,7 @@
           <li><a href="#a-meets">A Meets</a>
           <li><a href="#b-meets">B Meets</a>
           <li><a href="#other-meets">Other Meets</a>
+          <li><a href="#archived-meets">Meets from Previous Years</a>
         </ul>
       </div><!-- /.uc-sidebar -->
     </div><!-- /.col-md-3 -->
@@ -145,4 +181,3 @@
 </div><!-- /.container -->
 
 {% endblock %}
-

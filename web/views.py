@@ -47,13 +47,19 @@ def practices(request):
 
 def meets(request):
     results = Meet.objects.order_by('date')
-    a_meets = [e for e in results if e.meet_type == Meet.MEET_TYPE_A]
-    b_meets = [e for e in results if e.meet_type == Meet.MEET_TYPE_B]
-    other_meets = [e for e in results if e.meet_type == Meet.MEET_TYPE_OTHER]
+    a_meets = [e for e in results if e.meet_type == Meet.MEET_TYPE_A and
+               e.is_current_year_meet()]
+    b_meets = [e for e in results if e.meet_type == Meet.MEET_TYPE_B and
+               e.is_current_year_meet()]
+    other_meets = [e for e in results
+                   if e.meet_type == Meet.MEET_TYPE_OTHER and
+                   e.is_current_year_meet()]
+    archived_meets = [e for e in results if not e.is_current_year_meet()]
     return render(request, 'web/meets.html', {
         'a_meets': a_meets,
         'b_meets': b_meets,
         'other_meets': other_meets,
+        'archived_meets': archived_meets,
     })
 
 

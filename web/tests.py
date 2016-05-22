@@ -149,3 +149,13 @@ class MeetTestCase(TestCase):
         date = datetime.date.today() - datetime.timedelta(days=1)
         doc = Meet(results_date_updated=date)
         self.assertEqual(doc.was_results_date_updated_recently(), True)
+
+    def test_is_current_year_meet_with_old_meet(self):
+        date = datetime.date.today() - datetime.timedelta(weeks=53)
+        meet = Meet(date=date)
+        self.assertEqual(meet.is_current_year_meet(), False)
+
+    def test_is_current_year_meet(self):
+        date = datetime.date.today()
+        meet = Meet(date=date)
+        self.assertEqual(meet.is_current_year_meet(), True)
