@@ -256,6 +256,10 @@ class Meet(models.Model):
             datetime.date.today() - datetime.timedelta(days=2)
     was_results_date_updated_recently.boolean = True
 
+    def is_current_year_meet(self):
+        return self.date.year >= datetime.date.today().year
+    is_current_year_meet.boolean = True
+
     def __unicode__(self):
         return self.name + " "
         + dict(self.MEET_TYPE_CHOICES).get(self.meet_type)
