@@ -30,7 +30,12 @@ from django.contrib.auth.admin import UserAdmin
 
 from .forms import UniqueEmailUserCreationForm, UniqueEmailUserChangeForm
 
-from .models import SwimRecord, Meet, UniqueEmailUser
+from .models import Coach, SwimRecord, Meet, UniqueEmailUser
+
+
+class CoachAdmin(admin.ModelAdmin):
+    list_display = ['name', 'email', 'title']
+    list_filter = ['title']
 
 
 class SwimRecordAdmin(admin.ModelAdmin):
@@ -41,6 +46,7 @@ class MeetAdmin(admin.ModelAdmin):
     list_filter = ['meet_type']
     list_display = ('name', 'meet_type', 'date')
 
+admin.site.register(Coach, CoachAdmin)
 admin.site.register(SwimRecord, SwimRecordAdmin)
 admin.site.register(Meet, MeetAdmin)
 

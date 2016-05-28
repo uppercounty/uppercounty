@@ -29,8 +29,9 @@ from django import forms
 from django.http import HttpResponseNotFound
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
+from django.views.generic import ListView
 
-from .models import SwimRecord, Meet
+from .models import Coach, SwimRecord, Meet
 
 
 def index(request):
@@ -71,8 +72,10 @@ def shop(request):
     return render(request, 'web/shop.html')
 
 
-def coaches(request):
-    return render(request, 'web/coaches.html')
+class CoachesList(ListView):
+    context_object_name = 'coaches'
+    queryset = Coach.objects.order_by('name')
+    template_name = 'web/coaches.html'
 
 
 def records(request):

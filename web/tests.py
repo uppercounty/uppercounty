@@ -26,7 +26,7 @@
 """
 
 import datetime
-from django.test import TestCase, SimpleTestCase
+from django.test import TestCase
 from django.utils import timezone
 
 from .models import UniqueEmailUser, Meet
@@ -77,7 +77,7 @@ class UniqueEmailUserTestCase(TestCase):
         self.assertTrue(user.is_staff)
 
 
-class WebViewsTestCase(SimpleTestCase):
+class WebViewsTestCase(TestCase):
 
     def test_index(self):
         response = self.client.get('/')
@@ -111,16 +111,10 @@ class WebViewsTestCase(SimpleTestCase):
         response = self.client.get('/web/doesnotexist')
         self.assertEqual(response.status_code, 404)
 
-
-class RecordsPageTestCase(TestCase):
-
     def test_records_page(self):
         with self.assertTemplateUsed('web/records.html'):
             response = self.client.get('/web/records/')
             self.assertEqual(response.status_code, 200)
-
-
-class MeetsPageTestCase(TestCase):
 
     def test_meets_page(self):
         with self.assertTemplateUsed('web/meets.html'):

@@ -35,6 +35,6 @@ urlpatterns = [
     url(r'^meets/$', views.meets, name='meets'),
     url(r'^volunteer/', views.volunteer, name='volunteer'),
     url(r'^shop/', views.shop, name='shop'),
-    url(r'^coaches/', views.coaches, name='coaches'),
+    url(r'^coaches/', views.CoachesList.as_view(), name='coaches'),
     url(r'^records/', views.records, name='records'),
 ]
