@@ -99,6 +99,20 @@ class UniqueEmailUser(AbstractBaseUser, PermissionsMixin):
         verbose_name = "User"
 
 
+class Coach(models.Model):
+    name = models.CharField(max_length=100)
+    title = models.CharField(max_length=25)
+    bio = models.TextField(blank=True)
+    email = models.EmailField(blank=True)
+    image_file = models.ImageField(upload_to='coach-images', blank=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = "coaches"
+
+
 class SwimRecord(models.Model):
     RECORD_TYPE_POOL = 1
     RECORD_TYPE_TEAM = 2
