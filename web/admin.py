@@ -25,24 +25,31 @@
 
 """
 
+from __future__ import absolute_import
+from __future__ import unicode_literals
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
 from .forms import UniqueEmailUserCreationForm, UniqueEmailUserChangeForm
-
 from .models import Coach, SwimRecord, Meet, UniqueEmailUser
 
 
 class CoachAdmin(admin.ModelAdmin):
+    """Set properties of Coach to display in admin interface."""
+
     list_display = ['name', 'email', 'title']
     list_filter = ['title']
 
 
 class SwimRecordAdmin(admin.ModelAdmin):
+    """Set properties of SwimRecord to display in admin interface."""
+
     list_filter = ['record_type']
 
 
 class MeetAdmin(admin.ModelAdmin):
+    """Set properties of Meet to display in admin interface."""
+
     list_filter = ['meet_type']
     list_display = ('name', 'meet_type', 'date')
 
@@ -52,7 +59,7 @@ admin.site.register(Meet, MeetAdmin)
 
 
 class UniqueEmailUserAdmin(UserAdmin):
-    # The form to add and change a UniqueEmailUser
+    """Set forms to add and change a UniqueEmailUser in admin interface."""
 
     fieldsets = (
         (None, {'fields': ('email', 'password', 'first_name', 'last_name')}),

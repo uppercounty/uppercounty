@@ -25,6 +25,8 @@
 
 """
 
+from __future__ import absolute_import
+from __future__ import unicode_literals
 import datetime
 from django.test import TestCase
 from django.utils import timezone
@@ -33,6 +35,8 @@ from .models import UniqueEmailUser, Meet
 
 
 class UniqueEmailUserTestCase(TestCase):
+    """Test functionality of UniqueEmailUser."""
+
     def setUp(self):
         UniqueEmailUser.objects.create_user(email="johndoe@example.com",
                                             first_name="John", last_name="Doe")
@@ -80,36 +84,43 @@ class UniqueEmailUserTestCase(TestCase):
 class WebViewsTestCase(TestCase):
 
     def test_index(self):
-        response = self.client.get('/')
-        self.assertEqual(response.status_code, 200)
+        with self.assertTemplateUsed('web/index.html'):
+            response = self.client.get('/')
+            self.assertEqual(response.status_code, 200)
 
     def test_homepage(self):
-        response = self.client.get('/web/')
-        self.assertEqual(response.status_code, 200)
+        with self.assertTemplateUsed('web/index.html'):
+            response = self.client.get('/web/')
+            self.assertEqual(response.status_code, 200)
 
     def test_team_info_page(self):
         response = self.client.get('/web/team/')
         self.assertRedirects(response, '/web/practices/', 301, 200)
 
     def test_practices_page(self):
-        response = self.client.get('/web/practices/')
-        self.assertEqual(response.status_code, 200)
+        with self.assertTemplateUsed('web/practices.html'):
+            response = self.client.get('/web/practices/')
+            self.assertEqual(response.status_code, 200)
 
     def test_volunteer_page(self):
-        response = self.client.get('/web/volunteer/')
-        self.assertEqual(response.status_code, 200)
+        with self.assertTemplateUsed('web/volunteer.html'):
+            response = self.client.get('/web/volunteer/')
+            self.assertEqual(response.status_code, 200)
 
     def test_shop_page(self):
-        response = self.client.get('/web/shop/')
-        self.assertEqual(response.status_code, 200)
+        with self.assertTemplateUsed('web/shop.html'):
+            response = self.client.get('/web/shop/')
+            self.assertEqual(response.status_code, 200)
 
     def test_coaches_page(self):
-        response = self.client.get('/web/coaches/')
-        self.assertEqual(response.status_code, 200)
+        with self.assertTemplateUsed('web/coaches.html'):
+            response = self.client.get('/web/coaches/')
+            self.assertEqual(response.status_code, 200)
 
     def test_http404(self):
-        response = self.client.get('/web/doesnotexist')
-        self.assertEqual(response.status_code, 404)
+        with self.assertTemplateUsed('web/404.html'):
+            response = self.client.get('/web/doesnotexist')
+            self.assertEqual(response.status_code, 404)
 
     def test_records_page(self):
         with self.assertTemplateUsed('web/records.html'):
@@ -123,6 +134,7 @@ class WebViewsTestCase(TestCase):
 
 
 class MeetTestCase(TestCase):
+    """Test functionality of Meet."""
 
     def test_was_program_date_updated_recently_with_old_doc(self):
         date = datetime.date.today() - datetime.timedelta(days=3)

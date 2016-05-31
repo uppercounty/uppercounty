@@ -18,13 +18,15 @@
 # TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
 # OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-"""Module for views
+"""Module for views.
 
 .. moduleauthor:: Yang Yang <y4n9squared@gmail.com>
 .. moduleauthor:: Andrew Wang <wangandrewt@gmail.com>
 
 """
 
+from __future__ import absolute_import
+from __future__ import unicode_literals
 from django import forms
 from django.http import HttpResponseNotFound
 from django.shortcuts import render, redirect
