@@ -25,6 +25,8 @@
 
 """
 
+from __future__ import absolute_import
+from __future__ import unicode_literals
 from django import forms
 from django.http import HttpResponseNotFound
 from django.shortcuts import render, redirect

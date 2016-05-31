@@ -25,6 +25,9 @@
 
 """
 
+from __future__ import absolute_import
+from __future__ import unicode_literals
+from django.utils.encoding import python_2_unicode_compatible
 import datetime
 import os
 from django.contrib.auth.models import(AbstractBaseUser, BaseUserManager,
@@ -99,6 +102,7 @@ class UniqueEmailUser(AbstractBaseUser, PermissionsMixin):
         verbose_name = "User"
 
 
+@python_2_unicode_compatible
 class Coach(models.Model):
     name = models.CharField(max_length=100)
     title = models.CharField(max_length=25)
@@ -113,6 +117,7 @@ class Coach(models.Model):
         verbose_name_plural = "coaches"
 
 
+@python_2_unicode_compatible
 class SwimRecord(models.Model):
     RECORD_TYPE_POOL = 1
     RECORD_TYPE_TEAM = 2
@@ -224,7 +229,7 @@ class SwimRecord(models.Model):
     date = models.DateField(blank=True, null=True)
     pool = models.CharField(blank=True, max_length=4, choices=TEAM_CHOICES)
 
-    def __unicode__(self):
+    def __str__(self):
         result = dict(self.RECORD_TYPE_CHOICES).get(self.record_type) + \
             " Record for Swimmers=[" + self.swimmer_name + \
             "] of team=[" + self.swimmer_team + "] Event=[#" + \
@@ -234,10 +239,8 @@ class SwimRecord(models.Model):
         result += " at pool=[" + self.pool + "] with time " + self.time
         return result
 
-    def __str__(self):
-        return unicode(self).encode('utf-8')
 
-
+@python_2_unicode_compatible
 class Meet(models.Model):
     MEET_TYPE_A = 1
     MEET_TYPE_B = 2
@@ -274,10 +277,7 @@ class Meet(models.Model):
         return self.date.year >= datetime.date.today().year
     is_current_year_meet.boolean = True
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name + " "
         + dict(self.MEET_TYPE_CHOICES).get(self.meet_type)
         + " Meet on " + self.date.strftime('%Y-%m-%d')
-
-    def __str__(self):
-        return unicode(self).encode('utf-8')

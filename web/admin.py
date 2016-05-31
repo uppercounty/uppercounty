@@ -25,11 +25,12 @@
 
 """
 
+from __future__ import absolute_import
+from __future__ import unicode_literals
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
 from .forms import UniqueEmailUserCreationForm, UniqueEmailUserChangeForm
-
 from .models import Coach, SwimRecord, Meet, UniqueEmailUser
 
 
