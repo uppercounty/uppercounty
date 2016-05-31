@@ -18,7 +18,7 @@
 # TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
 # OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-"""Module for views
+"""Module for views.
 
 .. moduleauthor:: Yang Yang <y4n9squared@gmail.com>
 .. moduleauthor:: Andrew Wang <wangandrewt@gmail.com>

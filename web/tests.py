@@ -35,6 +35,8 @@ from .models import UniqueEmailUser, Meet
 
 
 class UniqueEmailUserTestCase(TestCase):
+    """Test functionality of UniqueEmailUser."""
+
     def setUp(self):
         UniqueEmailUser.objects.create_user(email="johndoe@example.com",
                                             first_name="John", last_name="Doe")
@@ -132,6 +134,7 @@ class WebViewsTestCase(TestCase):
 
 
 class MeetTestCase(TestCase):
+    """Test functionality of Meet."""
 
     def test_was_program_date_updated_recently_with_old_doc(self):
         date = datetime.date.today() - datetime.timedelta(days=3)

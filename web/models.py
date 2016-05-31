@@ -38,8 +38,7 @@ from django.utils import timezone
 
 class UniqueEmailUserManager(BaseUserManager):
     def create_user(self, email, first_name, last_name, password=None):
-        """Creates and saves a user with the given email, first name, and last
-        name.
+        """Create and saves a user with the given info.
 
         :param email: unique email address
         :param first_name: first name
@@ -58,8 +57,7 @@ class UniqueEmailUserManager(BaseUserManager):
         return user
 
     def create_superuser(self, email, first_name, last_name, password):
-        """Creates and saves a superuser with the given email, first name, and
-        last name.
+        """Create and save a superuser with the given info.
 
         :param email: unique email address
         :param first_name: first name
@@ -67,7 +65,6 @@ class UniqueEmailUserManager(BaseUserManager):
         :param password: password
 
         """
-
         user = self.create_user(email, first_name, last_name, password)
         user.is_staff = True
         user.is_superuser = True
@@ -76,8 +73,11 @@ class UniqueEmailUserManager(BaseUserManager):
 
 
 class UniqueEmailUser(AbstractBaseUser, PermissionsMixin):
-    """Custom user model for authentication using emails instead of
-    usernames"""
+    """A custom user model for authentication.
+
+    Use emails instead of usernames
+    """
+
     email = models.EmailField(verbose_name='email address', max_length=255,
                               unique=True, db_index=True)
     first_name = models.CharField(max_length=30)
@@ -91,11 +91,11 @@ class UniqueEmailUser(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = ['first_name', 'last_name']
 
     def get_full_name(self):
-        """Returns the full name of the user"""
+        """Return the full name of the user."""
         return (self.first_name + " " + self.last_name).title()
 
     def get_short_name(self):
-        """Returns the first name of the user"""
+        """Return the first name of the user."""
         return self.first_name.title()
 
     class Meta:
