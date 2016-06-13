@@ -48,6 +48,7 @@
         </div><!-- /.table-responsive -->
       </div><!-- /.uc-team-info-section -->
 
+      {% if b_meets %}
       <div class="uc-team-info-section">
         <div class="page-header">
           <h3 id="b-meets">B Meets</h3>
@@ -88,7 +89,9 @@
           </table>
         </div><!-- /.table-responsive -->
       </div><!-- /.uc-team-info-section -->
+      {% endif %}
 
+      {% if other_meets %}
       <div class="uc-team-info-section">
         <div class="page-header">
           <h3 id="other-meets">Other Meets</h3>
@@ -129,7 +132,9 @@
           </table>
         </div><!-- /.table-responsive -->
       </div><!-- /.uc-team-info-section -->
+      {% endif %}
 
+      {% if archived_meets %}
       <div class="uc-team-info-section">
         <div class="page-header">
           <h3 id="archived-meets">Meets from Previous Years</h3>
@@ -164,6 +169,7 @@
           </table>
         </div><!-- /.table-responsive -->
       </div><!-- /.uc-team-info-section -->
+      {% endif %}
 
     </div><!-- /.col-md-9 -->
 
@@ -171,9 +177,9 @@
       <div class="uc-sidebar hidden-print hidden-xs hidden-sm">
         <ul class="nav uc-sidenav" data-spy="affix">
           <li><a href="#a-meets">A Meets</a>
-          <li><a href="#b-meets">B Meets</a>
-          <li><a href="#other-meets">Other Meets</a>
-          <li><a href="#archived-meets">Meets from Previous Years</a>
+          {% if b_meets %}<li><a href="#b-meets">B Meets</a>{% endif %}
+          {% if other_meets %}<li><a href="#other-meets">Other Meets</a>{% endif %}
+          {% if archived_meets %}<li><a href="#archived-meets">Meets from Previous Years</a>{% endif %}
         </ul>
       </div><!-- /.uc-sidebar -->
     </div><!-- /.col-md-3 -->
