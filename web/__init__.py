@@ -17,15 +17,3 @@
 # DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 # TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
 # OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-"""Website for the Upper County Dolphins Swim Team."""
-
-version_tuple = (0, 1)
-
-
-def get_version_string():
-    if isinstance(version_tuple[-1], basestring):
-        return '.'.join(map(str, version_tuple[:-1])) + version_tuple[-1]
-    return '.'.join(map(str, version_tuple))
-
-version = get_version_string()
