@@ -11,9 +11,11 @@ env:
   matrix:
   - DB=postgres
 install:
-- pip -q install -r requirements.txt
-- pip -q install pep8
+  # Kludge bugfix. See https://github.com/travis-ci/travis-ci/issues/7940
+  - export BOTO_CONFIG=/dev/null
+  - pip -q install -r requirements.txt
+  - pip -q install pep8
 before_script:
-- pep8 --exclude=*/migrations/* uppercounty web
-- psql -c 'create database ucdb;' -U postgres
+  - pep8 --exclude=*/migrations/* uppercounty web
+  - psql -c 'create database ucdb;' -U postgres
 script: python manage.py test
